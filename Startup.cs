@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NespressoReviewsApi.Data;
 
 namespace NespressoReviewsApi
 {
@@ -25,6 +27,7 @@ namespace NespressoReviewsApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataContext>(ops => ops.UseMySQL(@"Server=localhost; Database=accountowner; Uid=dbuser; Pwd=dbuserpassword"));
             services.AddControllers();
         }
 
