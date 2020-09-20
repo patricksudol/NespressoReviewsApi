@@ -2,6 +2,18 @@
 version: '3.4'
 
 services:
+  nespressoreviews-db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: cookie
+      MYSQL_DATABASE: accountowner
+      MYSQL_USER: user
+      MYSQL_PASSWORD: dbuserpassword
+    # volumes: 
+    #   - dbdata:/var/lib/mysql
+    #   - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
+    restart: always
+
   nespressoreviewsapi:
     image: nespressoreviewsapi
     build:
@@ -9,18 +21,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:5000
-
-  nespressoreviews-db:
-    image: mysql
-    environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: 1
-      MYSQL_DATABASE: accountowner
-      MYSQL_USER: dbuser
-      MYSQL_PASSWORD: dbuserpassword
-    volumes: 
-      - dbdata:/var/lib/mysql
-      - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
-    restart: always
 
 volumes: 
   dbdata:
