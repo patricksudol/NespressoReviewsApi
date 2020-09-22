@@ -6,9 +6,9 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: cookie
-      MYSQL_DATABASE: nespressoreviews
-      MYSQL_USER: nespressoreviewsuser
-      MYSQL_PASSWORD: Un!qUEp@ass*w0rd
+      MYSQL_DATABASE: nespressoreviewsapi
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbuserpassword
     # volumes: 
     #   - dbdata:/var/lib/mysql
     #   - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
