@@ -2,21 +2,21 @@
 version: '3.4'
 
 services:
-  nespressoreviews-db:
+  db:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: cookie
-      MYSQL_DATABASE: accountowner
-      MYSQL_USER: user
-      MYSQL_PASSWORD: dbuserpassword
+      MYSQL_DATABASE: nespressoreviews
+      MYSQL_USER: nespressoreviewsuser
+      MYSQL_PASSWORD: Un!qUEp@ass*w0rd
     # volumes: 
     #   - dbdata:/var/lib/mysql
     #   - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
     restart: always
 
-  nespressoreviewsapi:
+  api:
     depends_on: 
-      - nespressoreviews-db
+      - db
     image: nespressoreviewsapi
     build:
       context: .

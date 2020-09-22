@@ -52,3 +52,7 @@
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/System.Xml.XPath.XmlDocument.dll
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/MySqlConnector.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll
