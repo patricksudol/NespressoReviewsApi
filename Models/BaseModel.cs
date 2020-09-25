@@ -1,7 +1,14 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace NespressoReviewsApi.Models
 {
-    public class BaseModel
+    public abstract class BaseModel
     {
-        public string Id { get; set; }
+        [Key]
+        public Guid Id { get; set; }
+        public string Notes { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime ModifiedDate { get; set;}
     }
 }
