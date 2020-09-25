@@ -7,5 +7,9 @@ namespace NespressoReviewsApi.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options){}
         public DbSet<User> Users { get; set; }
+        public DbSet<Type> Types { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Pod> Pods { get; set; }
+        public DbSet<Photo> Photos { get; set; }
     }
 }
