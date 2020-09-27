@@ -6,5 +6,8 @@ namespace NespressoReviewsApi.Models
     {
         public Type Type { get; set; }
         public Guid TypeId { get; set; }
+
+        public CupSize CupSize { get; set; }
+        public Guid CupSizeId { get; set; }
     }
 }
