@@ -56,3 +56,10 @@
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
