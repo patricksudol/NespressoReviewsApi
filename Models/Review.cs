@@ -2,7 +2,7 @@ using System;
 
 namespace NespressoReviewsApi.Models
 {
-    public class Review : BaseModel
+    public abstract class Review : BaseModel
     {
         public User User { get; set; }
         public Guid UserId { get; set; }   
