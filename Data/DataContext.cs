@@ -16,14 +16,18 @@ namespace NespressoReviewsApi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var podTypeId = Guid.NewGuid();
+            var cupSizeId = Guid.NewGuid();
+
             modelBuilder.Entity<PodReview>();
+
             modelBuilder.Entity<PodType>().HasData(
-                new PodType { Id = Guid.NewGuid(), Name = "Original", Order = 1 },
+                new PodType { Id = podTypeId, Name = "Original", Order = 1 },
                 new PodType { Id = Guid.NewGuid(), Name = "Vertuo", Order = 2 }
             );
 
             modelBuilder.Entity<CupSize>().HasData(
-                new CupSize { Id = Guid.NewGuid(), Name = "Double Espresso", Volume = (float)2.7f },
+                new CupSize { Id = cupSizeId, Name = "Double Espresso", Volume = (float)2.7f },
                 new CupSize { Id = Guid.NewGuid(), Name = "Espresso", Volume = (float)1.35f },
                 new CupSize { Id = Guid.NewGuid(), Name = "Gran Lungo", Volume = 5 },
                 new CupSize { Id = Guid.NewGuid(), Name = "Coffee", Volume = (float)7.77f },
@@ -36,9 +40,11 @@ namespace NespressoReviewsApi.Data
                     Id = Guid.NewGuid(),
                     Name = "Giornio",
                     Price = (float)10.00f,
-                    Description = "Test"
+                    Description = "Test",
+                    CupSizeId = cupSizeId,
+                    PodTypeId = podTypeId
                 }
             );
         }
     }
-}
+} 
