@@ -3,7 +3,7 @@ using NespressoReviewsApi.Models;
 
 namespace NespressoReviewsApi.Data
 {
-    public interface IPodRepository : IRepository<Pod>
+    public interface IPodRepository : IRepositoryBase<Pod>
     {
          IEnumerable<Pod> GetPods();
     }

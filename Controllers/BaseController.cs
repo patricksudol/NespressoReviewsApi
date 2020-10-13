@@ -4,7 +4,7 @@ using NespressoReviewsApi.Data;
 
 namespace NespressoReviewsApi.Controllers
 {
-    public abstract class BaseController<TModel, TRepository> : ControllerBase where TModel : class where TRepository : IRepository<TModel>
+    public abstract class BaseController<TModel, TRepository> : ControllerBase where TModel : class where TRepository : IRepositoryBase<TModel>
     {
         protected readonly TRepository Repository;
 
@@ -22,7 +22,7 @@ namespace NespressoReviewsApi.Controllers
         [HttpPost]
         public void Add([FromBody] TModel item)
         {
-            Repository.Add(item);
+            Repository.Create(item);
         }
     }
 }
