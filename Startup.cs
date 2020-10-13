@@ -39,6 +39,7 @@ namespace NespressoReviewsApi
                 });
             });
             services.AddControllers();
+            services.AddScoped<PodRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

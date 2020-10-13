@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
@@ -14,27 +15,27 @@ namespace NespressoReviewsApi.Data
             this.DataContext = dataContext;
         }
 
+        public T Get(Guid id)
+        {
+            return DataContext.Set<T>().Find(id);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return DataContext.Set<T>().ToList();
+        }
+
         public void Create(T entity)
         {
             this.DataContext.Set<T>().Add(entity);
         }
 
-        public void Delete(T entity)
+        public void Update(T entity)
         {
             this.DataContext.Set<T>().Remove(entity);
         }
 
-        public IQueryable<T> FindAll()
-        {
-            return this.DataContext.Set<T>().AsNoTracking();
-        }
-
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
-        {
-            return this.DataContext.Set<T>().Where(expression).AsNoTracking();
-        }
-
-        public void Update(T entity)
+        public void Delete(T entity)
         {
             this.DataContext.Set<T>().Remove(entity);
         }

@@ -30,6 +30,15 @@ namespace NespressoReviewsApi.Data
                 new CupSize { Id = Guid.NewGuid(), Name = "Coffee", Volume = (float)14.00f },
                 new CupSize { Id = Guid.NewGuid(), Name = "Craft Brew", Volume = 18 }
             );
+
+            modelBuilder.Entity<Pod>().HasData(
+                new Pod { 
+                    Id = Guid.NewGuid(),
+                    Name = "Giornio",
+                    Price = (float)10.00f,
+                    Description = "Test"
+                }
+            );
         }
     }
 }
