@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NespressoReviewsApi.Data
 {
-    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    public abstract class RepositoryBase<TModel> : IRepositoryBase<TModel> where TModel : class
     {
         protected DataContext DataContext{ get; set; }
 
@@ -15,29 +15,29 @@ namespace NespressoReviewsApi.Data
             this.DataContext = dataContext;
         }
 
-        public T Get(Guid id)
+        public TModel Get(Guid id)
         {
-            return DataContext.Set<T>().Find(id);
+            return DataContext.Set<TModel>().Find(id);
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<TModel> GetAll()
         {
-            return DataContext.Set<T>().ToList();
+            return DataContext.Set<TModel>().ToList();
         }
 
-        public void Create(T entity)
+        public void Create(TModel entity)
         {
-            this.DataContext.Set<T>().Add(entity);
+            this.DataContext.Set<TModel>().Add(entity);
         }
 
-        public void Update(T entity)
+        public void Update(TModel entity)
         {
-            this.DataContext.Set<T>().Remove(entity);
+            this.DataContext.Set<TModel>().Remove(entity);
         }
 
-        public void Delete(T entity)
+        public void Delete(TModel entity)
         {
-            this.DataContext.Set<T>().Remove(entity);
+            this.DataContext.Set<TModel>().Remove(entity);
         }
     }
 }

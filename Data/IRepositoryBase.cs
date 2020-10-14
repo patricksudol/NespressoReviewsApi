@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace NespressoReviewsApi.Data
 {
-    public interface IRepositoryBase<T> where T : class
+    public interface IRepositoryBase<TModel> where TModel : class
     {
-        T Get(Guid Id);
-        IEnumerable<T> GetAll();
-        void Create(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+        TModel Get(Guid Id);
+        IEnumerable<TModel> GetAll();
+        void Create(TModel entity);
+        void Update(TModel entity);
+        void Delete(TModel entity);
     }
 }
