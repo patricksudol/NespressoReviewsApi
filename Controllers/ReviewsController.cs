@@ -12,14 +12,14 @@ namespace NespressoReviewsApi.Controllers
     {
         public ReviewsController(ReviewRepository reviewRepository) : base (reviewRepository) { }
 
-        [HttpGet("{id}")]
+        [HttpGet("pod/{id}")]
         public IEnumerable<Review> ByPod(Guid id)
         {
             return base.Repository.GetReviewsByPod(id);
         }
 
-        [HttpGet("{id}")]
-        public IEnumerable<Review> ByUsser(Guid id)
+        [HttpGet("user/{id}")]
+        public IEnumerable<Review> ByUser(Guid id)
         {
             return base.Repository.GetReviewsByUser(id);
         }
