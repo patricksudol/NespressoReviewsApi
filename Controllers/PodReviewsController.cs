@@ -8,18 +8,18 @@ namespace NespressoReviewsApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ReviewsController : BaseController<Review, ReviewRepository>
+    public class PodReviewsController : BaseController<PodReview, PodReviewRepository>
     {
-        public ReviewsController(ReviewRepository reviewRepository) : base (reviewRepository) { }
+        public PodReviewsController(PodReviewRepository podReviewRepository) : base(podReviewRepository) { }
 
         [HttpGet("pod/{id}")]
-        public IEnumerable<Review> ByPod(Guid id)
+        public IEnumerable<PodReview> ByPod(Guid id)
         {
             return base.Repository.GetReviewsByPod(id);
         }
 
         [HttpGet("user/{id}")]
-        public IEnumerable<Review> ByUser(Guid id)
+        public IEnumerable<PodReview> ByUser(Guid id)
         {
             return base.Repository.GetReviewsByUser(id);
         }

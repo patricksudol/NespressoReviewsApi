@@ -9,7 +9,7 @@ using NespressoReviewsApi.Data;
 namespace NespressoReviewsApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201013225358_Initial")]
+    [Migration("20201021013515_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,7 +47,7 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f34acb49-9e46-40f0-975b-4a2547e40312"),
+                            Id = new Guid("701cf365-77b0-4459-9c6c-0bcbd130c477"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Double Espresso",
@@ -55,7 +55,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2e2f7265-e22b-4ad9-8083-5ca1f2809611"),
+                            Id = new Guid("d9004da1-bda1-4943-bb7b-d66eb85cb77b"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Espresso",
@@ -63,7 +63,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7431f960-7702-4627-ae35-df288df9044f"),
+                            Id = new Guid("9042e9ff-4830-4b13-a797-7bef80229744"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gran Lungo",
@@ -71,7 +71,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cde7cfb5-237d-49d5-a444-b5cfc45765bd"),
+                            Id = new Guid("432a9eba-eb33-4fd2-8124-955ae5dcba4a"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Coffee",
@@ -79,7 +79,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2da0ea14-552e-4c6f-bf7b-2a18758b3c35"),
+                            Id = new Guid("4fdcef52-a49c-4f2e-a93c-b47ceed67acb"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Coffee",
@@ -87,7 +87,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1e656b90-af47-4ba0-b221-36d360e264ad"),
+                            Id = new Guid("4191d983-935a-42a6-80d7-8c6f29649392"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Craft Brew",
@@ -159,15 +159,51 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9e0b414b-eab8-48ee-82c8-7b8b0098b7bb"),
+                            Id = new Guid("2e7b9a87-a5e5-4121-a49d-45cca30fd7d3"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CupSizeId = new Guid("f34acb49-9e46-40f0-975b-4a2547e40312"),
+                            CupSizeId = new Guid("701cf365-77b0-4459-9c6c-0bcbd130c477"),
                             Description = "Test",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Giornio",
-                            PodTypeId = new Guid("31819be5-c7c6-4ce1-bb09-5803a450eb9a"),
+                            PodTypeId = new Guid("82a63696-c4cb-4558-9504-0ea6a215f44f"),
                             Price = 10f
                         });
+                });
+
+            modelBuilder.Entity("NespressoReviewsApi.Models.PodReview", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<Guid>("PodId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PodId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PodReviews");
                 });
 
             modelBuilder.Entity("NespressoReviewsApi.Models.PodType", b =>
@@ -198,7 +234,7 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("31819be5-c7c6-4ce1-bb09-5803a450eb9a"),
+                            Id = new Guid("82a63696-c4cb-4558-9504-0ea6a215f44f"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Original",
@@ -206,49 +242,12 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c1a1dfd0-652e-4327-9ccd-9f65572f4cff"),
+                            Id = new Guid("54622b3f-e38b-4190-9a0b-bd605aea97b1"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vertuo",
                             Order = 2
                         });
-                });
-
-            modelBuilder.Entity("NespressoReviewsApi.Models.Review", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Reviews");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Review");
                 });
 
             modelBuilder.Entity("NespressoReviewsApi.Models.User", b =>
@@ -280,20 +279,6 @@ namespace NespressoReviewsApi.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("NespressoReviewsApi.Models.PodReview", b =>
-                {
-                    b.HasBaseType("NespressoReviewsApi.Models.Review");
-
-                    b.Property<Guid>("PodId")
-                        .HasColumnType("char(36)");
-
-                    b.HasIndex("PodId");
-
-                    b.ToTable("PodReviews");
-
-                    b.HasDiscriminator().HasValue("PodReview");
-                });
-
             modelBuilder.Entity("NespressoReviewsApi.Models.Pod", b =>
                 {
                     b.HasOne("NespressoReviewsApi.Models.CupSize", "CupSize")
@@ -309,20 +294,17 @@ namespace NespressoReviewsApi.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("NespressoReviewsApi.Models.Review", b =>
-                {
-                    b.HasOne("NespressoReviewsApi.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("NespressoReviewsApi.Models.PodReview", b =>
                 {
                     b.HasOne("NespressoReviewsApi.Models.Pod", "Pod")
                         .WithMany()
                         .HasForeignKey("PodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NespressoReviewsApi.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

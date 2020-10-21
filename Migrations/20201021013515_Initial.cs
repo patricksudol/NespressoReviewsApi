@@ -103,7 +103,7 @@ namespace NespressoReviewsApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reviews",
+                name: "PodReviews",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -113,20 +113,19 @@ namespace NespressoReviewsApi.Migrations
                     UserId = table.Column<Guid>(nullable: false),
                     Score = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    Discriminator = table.Column<string>(nullable: false),
-                    PodId = table.Column<Guid>(nullable: true)
+                    PodId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reviews", x => x.Id);
+                    table.PrimaryKey("PK_PodReviews", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Reviews_Pods_PodId",
+                        name: "FK_PodReviews_Pods_PodId",
                         column: x => x.PodId,
                         principalTable: "Pods",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reviews_Users_UserId",
+                        name: "FK_PodReviews_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -138,12 +137,12 @@ namespace NespressoReviewsApi.Migrations
                 columns: new[] { "Id", "CreatedDate", "ModifiedDate", "Name", "Notes", "Volume" },
                 values: new object[,]
                 {
-                    { new Guid("f34acb49-9e46-40f0-975b-4a2547e40312"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Double Espresso", null, 2.7000000476837158 },
-                    { new Guid("2e2f7265-e22b-4ad9-8083-5ca1f2809611"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Espresso", null, 1.3500000238418579 },
-                    { new Guid("7431f960-7702-4627-ae35-df288df9044f"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Gran Lungo", null, 5.0 },
-                    { new Guid("cde7cfb5-237d-49d5-a444-b5cfc45765bd"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 7.7699999809265137 },
-                    { new Guid("2da0ea14-552e-4c6f-bf7b-2a18758b3c35"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 14.0 },
-                    { new Guid("1e656b90-af47-4ba0-b221-36d360e264ad"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Craft Brew", null, 18.0 }
+                    { new Guid("701cf365-77b0-4459-9c6c-0bcbd130c477"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Double Espresso", null, 2.7000000476837158 },
+                    { new Guid("d9004da1-bda1-4943-bb7b-d66eb85cb77b"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Espresso", null, 1.3500000238418579 },
+                    { new Guid("9042e9ff-4830-4b13-a797-7bef80229744"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Gran Lungo", null, 5.0 },
+                    { new Guid("432a9eba-eb33-4fd2-8124-955ae5dcba4a"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 7.7699999809265137 },
+                    { new Guid("4fdcef52-a49c-4f2e-a93c-b47ceed67acb"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 14.0 },
+                    { new Guid("4191d983-935a-42a6-80d7-8c6f29649392"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Craft Brew", null, 18.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -151,14 +150,24 @@ namespace NespressoReviewsApi.Migrations
                 columns: new[] { "Id", "CreatedDate", "ModifiedDate", "Name", "Notes", "Order" },
                 values: new object[,]
                 {
-                    { new Guid("31819be5-c7c6-4ce1-bb09-5803a450eb9a"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Original", null, 1 },
-                    { new Guid("c1a1dfd0-652e-4327-9ccd-9f65572f4cff"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vertuo", null, 2 }
+                    { new Guid("82a63696-c4cb-4558-9504-0ea6a215f44f"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Original", null, 1 },
+                    { new Guid("54622b3f-e38b-4190-9a0b-bd605aea97b1"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vertuo", null, 2 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Pods",
                 columns: new[] { "Id", "CreatedDate", "CupSizeId", "Description", "ModifiedDate", "Name", "Notes", "PodTypeId", "Price" },
-                values: new object[] { new Guid("9e0b414b-eab8-48ee-82c8-7b8b0098b7bb"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("f34acb49-9e46-40f0-975b-4a2547e40312"), "Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Giornio", null, new Guid("31819be5-c7c6-4ce1-bb09-5803a450eb9a"), 10f });
+                values: new object[] { new Guid("2e7b9a87-a5e5-4121-a49d-45cca30fd7d3"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("701cf365-77b0-4459-9c6c-0bcbd130c477"), "Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Giornio", null, new Guid("82a63696-c4cb-4558-9504-0ea6a215f44f"), 10f });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PodReviews_PodId",
+                table: "PodReviews",
+                column: "PodId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PodReviews_UserId",
+                table: "PodReviews",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pods_CupSizeId",
@@ -169,16 +178,6 @@ namespace NespressoReviewsApi.Migrations
                 name: "IX_Pods_PodTypeId",
                 table: "Pods",
                 column: "PodTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reviews_PodId",
-                table: "Reviews",
-                column: "PodId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reviews_UserId",
-                table: "Reviews",
-                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -187,7 +186,7 @@ namespace NespressoReviewsApi.Migrations
                 name: "Photos");
 
             migrationBuilder.DropTable(
-                name: "Reviews");
+                name: "PodReviews");
 
             migrationBuilder.DropTable(
                 name: "Pods");
