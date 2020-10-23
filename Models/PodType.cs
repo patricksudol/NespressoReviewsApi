@@ -1,5 +1,3 @@
-using System;
-
 namespace NespressoReviewsApi.Models
 {
     public class PodType : BaseModel
