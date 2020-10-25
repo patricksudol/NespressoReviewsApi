@@ -12,10 +12,5 @@ namespace NespressoReviewsApi.Data
         }
 
         public PodRepository(DataContext context) : base(context) { }
-
-        public IEnumerable<Pod> GetPods()
-        {
-            return DataContext.Pods.ToList();
-        }
     }
 }
