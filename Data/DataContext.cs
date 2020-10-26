@@ -41,8 +41,6 @@ namespace NespressoReviewsApi.Data
                     Name = "Giornio",
                     Price = (float)10.00f,
                     Description = "Test",
-                    CupSizeId = cupSizeId,
-                    PodTypeId = podTypeId
                 }
             );
         }
