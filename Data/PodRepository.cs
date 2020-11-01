@@ -5,36 +5,36 @@ using NespressoReviewsApi.Models;
 
 namespace NespressoReviewsApi.Data
 {
-    public class PodTypeRepository : IBaseRepository<PodType>
+    public class PodRepository : IBaseRepository<Pod>
     {
         private readonly DataContext _context;
-        public PodTypeRepository(DataContext context)
+        public PodRepository(DataContext context)
         {
             _context = context;
         }
-        public void Create(PodType entity)
+        public void Create(Pod entity)
         {
             _context.Add(entity);
             _context.SaveChanges();
         }
 
-        public void Delete(PodType entity)
+        public void Delete(Pod entity)
         {
             _context.Remove(entity);
             _context.SaveChanges();
         }
 
-        public PodType Get(Guid Id)
+        public Pod Get(Guid Id)
         {
-            return _context.Set<PodType>().Find(Id);
+            return _context.Set<Pod>().Find(Id);
         }
 
-        public IEnumerable<PodType> GetAll()
+        public IEnumerable<Pod> GetAll()
         {
-            return _context.Set<PodType>().ToList();
+            return _context.Set<Pod>().ToList();
         }
 
-        public void Update(PodType entity)
+        public void Update(Pod entity)
         {
             _context.Remove(entity);
         }
