@@ -1,4 +1,6 @@
 using AutoMapper;
+using NespressoReviewsApi.Dtos;
+using NespressoReviewsApi.Models;
 
 namespace NespressoReviewsApi.Helpers
 {
@@ -6,6 +8,7 @@ namespace NespressoReviewsApi.Helpers
     {
         public AutoMapperProfiles()
         {
+            CreateMap<PodType, PodTypeCreationDto>();
         }
     }
 }

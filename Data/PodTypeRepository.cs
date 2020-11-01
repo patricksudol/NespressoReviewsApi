@@ -1,14 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using NespressoReviewsApi.Models;
 
 namespace NespressoReviewsApi.Data
 {
-    public class PodTypeRepository : RepositoryBase<PodType>, IPodTypeRepository
+    public class PodTypeRepository : IBaseRepository<PodType>
     {
-        public DataContext DataContext
+        private readonly DataContext _context;
+        public PodTypeRepository(DataContext context){
+            _context = context;
+        }
+        public void Create(PodType entity)
         {
-            get { return DataContext as DataContext; }
+            _context.Add(entity);
+            _context.SaveChanges();
         }
 
-        public PodTypeRepository(DataContext context) : base(context) { }
+        public void Delete(PodType entity)
+        {
+            _context.Remove(entity);
+        }
+
+        public PodType Get(Guid Id)
+        {
+            return _context.Set<PodType>().Find(Id);
+        }
+
+        public IEnumerable<PodType> GetAll()
+        {
+            return _context.Set<PodType>().ToList();
+        }
+
+        public void Update(PodType entity)
+        {
+            _context.Remove(entity);
+        }
     }
 }

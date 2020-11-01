@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -33,8 +34,9 @@ namespace NespressoReviewsApi
                 });
             });
             services.AddControllers();
-            services.AddScoped<PodRepository>();
-            services.AddScoped<PodReviewRepository>();
+            // services.AddScoped<PodRepository>();
+            // services.AddScoped<PodReviewRepository>();
+            services.AddAutoMapper(typeof(PodTypeRepository).Assembly);
             services.AddScoped<PodTypeRepository>();
         }
 
