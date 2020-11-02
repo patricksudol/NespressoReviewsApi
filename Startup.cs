@@ -38,8 +38,10 @@ namespace NespressoReviewsApi
             // services.AddScoped<PodReviewRepository>();
             services.AddAutoMapper(typeof(PodTypeRepository).Assembly);
             services.AddAutoMapper(typeof(PodRepository).Assembly);
+            services.AddAutoMapper(typeof(PodReviewRepository).Assembly);
             services.AddScoped<PodTypeRepository>();
             services.AddScoped<PodRepository>();
+            services.AddScoped<PodReviewRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
