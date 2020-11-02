@@ -63,3 +63,5 @@
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/AutoMapper.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

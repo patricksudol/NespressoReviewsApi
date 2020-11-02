@@ -21,6 +21,10 @@ namespace NespressoReviewsApi.Data
 
             modelBuilder.Entity<PodReview>();
 
+            modelBuilder.Entity<User>().HasData(
+                new User { Id = Guid.NewGuid(), FirstName = "Patrick", LastName = "Sudol", EmailAddress = "patrick.sudol@icloud.com"}
+            );
+
             modelBuilder.Entity<PodType>().HasData(
                 new PodType { Id = podTypeId, Name = "Original", Order = 1 },
                 new PodType { Id = Guid.NewGuid(), Name = "Vertuo", Order = 2 }

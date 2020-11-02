@@ -46,7 +46,7 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f4ed7d22-7086-4c46-bcbb-bce26f48ee60"),
+                            Id = new Guid("19578ceb-8eb0-4e06-a31d-7f1c69238ffb"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Double Espresso",
@@ -54,7 +54,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("eb563b2b-0966-41ae-97b0-249a0bfe2510"),
+                            Id = new Guid("f39a706a-22b4-487a-b577-f11682e6b723"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Espresso",
@@ -62,7 +62,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8512e906-ae1e-47cc-b174-6c6e7d651a1e"),
+                            Id = new Guid("5746eb85-3ae0-4db1-be63-082b5777c6ad"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gran Lungo",
@@ -70,7 +70,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ab924055-9cc0-4986-b87d-9861073d625a"),
+                            Id = new Guid("879eb273-d089-47eb-a18d-2ceb336f9cb9"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Coffee",
@@ -78,7 +78,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8209fa86-5bc6-49ca-b89b-5475e4c6534a"),
+                            Id = new Guid("8dfd99da-9b67-42f9-b59f-d5747a9f1ed1"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Coffee",
@@ -86,7 +86,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("590d37a4-eefa-4c87-b6a3-ee364ced7d4a"),
+                            Id = new Guid("678c3cba-84d9-406c-902b-0ee43bdfe9da"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Craft Brew",
@@ -160,7 +160,7 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4e4966b2-7776-4df7-beb9-dc6e66c991ba"),
+                            Id = new Guid("3534f84c-e19b-4c85-9f70-e6b1f252d37c"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Test",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -233,7 +233,7 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ea29d0fe-9138-4bb6-a5bd-1b11a3a79d37"),
+                            Id = new Guid("64dd52f8-c8d5-45ae-8ec6-484d216676f2"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Original",
@@ -241,7 +241,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7cc35632-85ec-47a4-a76f-5c8253ec8f1f"),
+                            Id = new Guid("ffee1dc4-cb8f-45b6-ad79-84d54864ebec"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vertuo",
@@ -279,6 +279,17 @@ namespace NespressoReviewsApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d6097e8e-70d1-4c9a-8407-47971bfac6ae"),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmailAddress = "patrick.sudol@icloud.com",
+                            FirstName = "Patrick",
+                            LastName = "Sudol",
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("NespressoReviewsApi.Models.Pod", b =>
