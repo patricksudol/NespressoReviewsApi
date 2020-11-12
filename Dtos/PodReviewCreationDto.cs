@@ -1,3 +1,4 @@
+using System;
 using NespressoReviewsApi.Models;
 
 namespace NespressoReviewsApi.Dtos
@@ -7,7 +8,7 @@ namespace NespressoReviewsApi.Dtos
         public User User { get; set; }
         public int Score { get; set; }
         public string Description { get; set; }
-        public Pod Pod { get; set; }
+        public Guid PodId { get; set; }
         PodReviewCreationDto() : base() {}
     }
 }

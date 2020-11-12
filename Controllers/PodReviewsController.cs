@@ -41,9 +41,8 @@ namespace NespressoReviewsApi.Controllers
                 User = podReviewCreationDto.User,
                 Score = podReviewCreationDto.Score,
                 Description = podReviewCreationDto.Description,
-                Pod = podReviewCreationDto.Pod
+                PodId = podReviewCreationDto.PodId
             };
-            
             _repo.Create(podReviewsToCreate);
 
             return StatusCode(201);
