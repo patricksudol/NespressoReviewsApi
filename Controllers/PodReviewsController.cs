@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -23,8 +24,9 @@ namespace NespressoReviewsApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPodReviews()
         {
-            var podreviews = _repo.GetAll();
-            return Ok(podreviews);
+            var podReviews = _repo.GetAll();
+            var podReviewsToReturn = _mapper.Map<IEnumerable<PodReviewForListDto>>(podReviews);
+            return Ok(podReviewsToReturn);
         }
 
         [HttpGet("{id}")]

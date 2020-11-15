@@ -34,8 +34,6 @@ namespace NespressoReviewsApi
                 });
             });
             services.AddControllers();
-            // services.AddScoped<PodRepository>();
-            // services.AddScoped<PodReviewRepository>();
             services.AddAutoMapper(typeof(PodTypeRepository).Assembly);
             services.AddAutoMapper(typeof(PodRepository).Assembly);
             services.AddAutoMapper(typeof(PodReviewRepository).Assembly);
