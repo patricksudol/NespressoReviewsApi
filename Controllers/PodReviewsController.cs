@@ -40,7 +40,7 @@ namespace NespressoReviewsApi.Controllers
         {
             var podReviewsToCreate = new PodReview
             {
-                User = podReviewCreationDto.User,
+                UserId = podReviewCreationDto.UserId,
                 Score = podReviewCreationDto.Score,
                 Description = podReviewCreationDto.Description,
                 PodId = podReviewCreationDto.PodId

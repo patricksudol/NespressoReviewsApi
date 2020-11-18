@@ -5,7 +5,7 @@ namespace NespressoReviewsApi.Dtos
 {
     public class PodReviewCreationDto : CreationDtoBase
     {
-        public User User { get; set; }
+        public Guid UserId { get; set; }
         public int Score { get; set; }
         public string Description { get; set; }
         public Guid PodId { get; set; }

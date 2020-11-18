@@ -46,7 +46,7 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("333bebe1-70de-457a-a2b5-590cdbbbf22c"),
+                            Id = new Guid("05c281b6-d963-4d4b-9ffb-c4ec925884c4"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Double Espresso",
@@ -54,7 +54,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b800aa90-8245-4e76-b4c8-94858e2fbbaa"),
+                            Id = new Guid("18f7cb87-5def-474b-9b23-daa59c031c88"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Espresso",
@@ -62,7 +62,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b236eba5-c850-41b8-9ed4-eb5805eb19a4"),
+                            Id = new Guid("4bb0af9c-9b6d-4cb0-bc01-ce6c679e9c72"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gran Lungo",
@@ -70,7 +70,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("51ee0aec-7348-4daf-8424-3dd0b2d22775"),
+                            Id = new Guid("dd049851-1b88-4a55-86f9-474636b931aa"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Coffee",
@@ -78,7 +78,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("28ad92e1-bce6-491c-b578-187cf75b5250"),
+                            Id = new Guid("de521af0-b7be-469b-b788-7c3e1004d64d"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Coffee",
@@ -86,7 +86,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("25d7a487-3de8-4669-a5bd-3cf03a6288cb"),
+                            Id = new Guid("f9f03491-aabf-470e-95b3-0e11b3892e48"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Craft Brew",
@@ -160,13 +160,13 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d4a2a856-43c0-4126-8128-b1a20f22e904"),
+                            Id = new Guid("81ad6749-4963-4864-acc0-8d10e3282d31"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CupSizeId = new Guid("333bebe1-70de-457a-a2b5-590cdbbbf22c"),
+                            CupSizeId = new Guid("05c281b6-d963-4d4b-9ffb-c4ec925884c4"),
                             Description = "Test",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Giornio",
-                            PodTypeId = new Guid("154cf61a-83a6-48ce-a52f-e26d019b684c"),
+                            PodTypeId = new Guid("66213b56-1888-4081-bf44-e9169eb245b5"),
                             Price = 10f
                         });
                 });
@@ -235,7 +235,7 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("154cf61a-83a6-48ce-a52f-e26d019b684c"),
+                            Id = new Guid("66213b56-1888-4081-bf44-e9169eb245b5"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Original",
@@ -243,7 +243,7 @@ namespace NespressoReviewsApi.Migrations
                         },
                         new
                         {
-                            Id = new Guid("15edc84e-55ca-4399-bb57-08b9a1d45e29"),
+                            Id = new Guid("29811665-2763-4a32-9fa0-a656aede5399"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vertuo",
@@ -285,7 +285,7 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5671cad8-d92d-49b9-8531-6215ecc5cac7"),
+                            Id = new Guid("361f6729-7c9c-4a99-84f5-11e81c29bb1f"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmailAddress = "patrick.sudol@icloud.com",
                             FirstName = "Patrick",
