@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NespressoReviewsApi.Data;
+using NespressoReviewsApi.Dtos;
 
 namespace NespressoReviewsApi.Controllers
 {
@@ -22,7 +24,8 @@ namespace NespressoReviewsApi.Controllers
         public async Task<IActionResult> GetPods()
         {
             var pods = _repo.GetAll();
-            return Ok(pods);
+            var podsToReturn = _mapper.Map<IEnumerable<PodForListDto>>(pods);
+            return Ok(podsToReturn);
         }
 
         [HttpGet("{id}")]
