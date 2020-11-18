@@ -42,6 +42,8 @@ namespace NespressoReviewsApi.Data
             modelBuilder.Entity<Pod>().HasData(
                 new Pod { 
                     Id = Guid.NewGuid(),
+                    CupSizeId = cupSizeId,
+                    PodTypeId = podTypeId,
                     Name = "Giornio",
                     Price = (float)10.00f,
                     Description = "Test",

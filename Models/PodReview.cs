@@ -8,4 +8,4 @@ namespace NespressoReviewsApi.Models
         public Guid PodId { get; set; }
         public Pod Pod { get; set; }
     }
-}
+} 
