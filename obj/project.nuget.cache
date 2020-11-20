@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wYEP216PonKHFRIoomlNm2cJ0QCfIOS3IMaNqplJn+auKOZYmjFosA9ar4sOPX2mf7ioE+kfHim0reJfch/URA==",
+  "dgSpecHash": "Vo/8XOFLXy1ulolHpPFy5C6bjpWx7Fz3vFZyZHiEWB1uxvz7/NEoIZMsE83A3aHJ3OL1RIOjMw+Vz1IcVxpnZA==",
   "success": true,
   "projectFilePath": "/Users/patricksudol/Code/NespressoReviewsApi/NespressoReviewsApi.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,7 @@
     "/Users/patricksudol/.nuget/packages/k4os.compression.lz4/1.1.11/k4os.compression.lz4.1.1.11.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/k4os.compression.lz4.streams/1.1.11/k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/k4os.hash.xxhash/1.0.6/k4os.hash.xxhash.1.0.6.nupkg.sha512",
-    "/Users/patricksudol/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.1.8/microsoft.aspnetcore.authentication.jwtbearer.3.1.8.nupkg.sha512",
+    "/Users/patricksudol/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.1.10/microsoft.aspnetcore.authentication.jwtbearer.3.1.10.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
