@@ -7,7 +7,7 @@ using NespressoReviewsApi.Models;
 
 namespace NespressoReviewsApi.Controllers
 {
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     [ApiController]    
     public class AuthController : ControllerBase
     {
@@ -29,7 +29,10 @@ namespace NespressoReviewsApi.Controllers
                 return BadRequest("Username already exists");
             
             var userToCreate = new User{
-                UserName = userForRegisterDto.UserName
+                UserName = userForRegisterDto.UserName,
+                EmailAddress = userForRegisterDto.EmailAddress,
+                FirstName = userForRegisterDto.FirstName,
+                LastName = userForRegisterDto.LastName
             };
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
