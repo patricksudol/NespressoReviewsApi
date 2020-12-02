@@ -36,6 +36,7 @@ namespace NespressoReviewsApi.Controllers
             return Ok(_repo.Get(id));
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreatePodReview(PodReviewCreationDto podReviewCreationDto)
         {
