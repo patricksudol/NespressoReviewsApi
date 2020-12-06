@@ -23,11 +23,14 @@ namespace NespressoReviewsApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPodReviews()
+        public async Task<IActionResult> GetPodReviews(Guid userId, Guid podId)
         {
             var podReviews = _repo.GetAll();
-            var podReviewsToReturn = _mapper.Map<IEnumerable<PodReviewForListDto>>(podReviews);
-            return Ok(podReviewsToReturn);
+            if (!(userId == Guid.Empty))
+                podReviews = _repo.GetByUser(userId);
+            if (!(podId == Guid.Empty))
+                podReviews = _repo.GetByPod(podId);
+            return Ok(_mapper.Map<IEnumerable<PodReviewForListDto>>(podReviews));
         }
 
         [HttpGet("{id}")]

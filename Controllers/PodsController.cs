@@ -29,7 +29,6 @@ namespace NespressoReviewsApi.Controllers
             var pods = _repo.GetAll();
             if (!String.IsNullOrEmpty(podtype))
                 pods = _repo.GetByPodType(podtype);
-            var podsToReturn = _mapper.Map<IEnumerable<PodForListDto>>(pods);
             return Ok(_mapper.Map<IEnumerable<PodForListDto>>(pods));
         }
 
