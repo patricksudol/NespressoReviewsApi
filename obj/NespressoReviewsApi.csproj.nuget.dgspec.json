@@ -14,7 +14,7 @@
         "outputPath": "/Users/patricksudol/Code/NespressoReviewsApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/patricksudol/.nuget/NuGet/NuGet.Config"
+          "/Users/patricksudol/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

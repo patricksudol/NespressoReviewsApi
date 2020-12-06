@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NespressoReviewsApi.Data;
 using NespressoReviewsApi.Dtos;
+using NespressoReviewsApi.Models;
 
 namespace NespressoReviewsApi.Controllers
 {
@@ -22,16 +24,19 @@ namespace NespressoReviewsApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPods()
+        public async Task<IActionResult> GetPods(string podtype)
         {
             var pods = _repo.GetAll();
+            if (!String.IsNullOrEmpty(podtype))
+                pods = _repo.GetByPodType(podtype);
             var podsToReturn = _mapper.Map<IEnumerable<PodForListDto>>(pods);
-            return Ok(podsToReturn);
+            return Ok(_mapper.Map<IEnumerable<PodForListDto>>(pods));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPod(Guid id)
         {
+            Console.WriteLine($"This is an id: {id}");
             return Ok(_repo.Get(id));
         }
     }

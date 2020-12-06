@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{D013E36E-9620-43BC-AEFA-D047B350FEB7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Data/IRepositoryBase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Data/DataContext.cs">
     <Files>
       <File FileName="Data/DataContext.cs" Line="1" Column="1" />
-      <File FileName="Data/IRepositoryBase.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +9,7 @@
           <Node name="NespressoReviewsApi" expanded="True">
             <Node name="NespressoReviewsApi" expanded="True">
               <Node name="Data" expanded="True">
-                <Node name="IRepositoryBase.cs" selected="True" />
+                <Node name="DataContext.cs" selected="True" />
               </Node>
               <Node name="Models" expanded="True" />
             </Node>

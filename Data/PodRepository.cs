@@ -24,6 +24,11 @@ namespace NespressoReviewsApi.Data
             _context.SaveChanges();
         }
 
+        public IEnumerable<Pod> GetByPodType(string podtype)
+        {
+            return _context.Set<Pod>().Where(p => p.PodType.Name == podtype);
+        }
+
         public Pod Get(Guid Id)
         {
             return _context.Set<Pod>().Find(Id);
