@@ -66,6 +66,7 @@ namespace NespressoReviewsApi.Migrations
                     LastName = table.Column<string>(nullable: false),
                     EmailAddress = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(nullable: false),
+                    Bio = table.Column<string>(nullable: true),
                     PasswordHash = table.Column<byte[]>(nullable: true),
                     PasswordSalt = table.Column<byte[]>(nullable: true)
                 },
@@ -140,12 +141,12 @@ namespace NespressoReviewsApi.Migrations
                 columns: new[] { "Id", "CreatedDate", "ModifiedDate", "Name", "Notes", "Volume" },
                 values: new object[,]
                 {
-                    { new Guid("1e97f9ce-0a83-4ae5-b32d-681f91c13690"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Double Espresso", null, 2.7000000476837158 },
-                    { new Guid("a277f907-57b9-4acf-82cb-d52ed6310f19"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Espresso", null, 1.3500000238418579 },
-                    { new Guid("5576013c-5a3d-457c-8f1d-ac1eedc32328"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Gran Lungo", null, 5.0 },
-                    { new Guid("c52ec4d5-6ea3-43af-b475-e4d127f16a6f"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 7.7699999809265137 },
-                    { new Guid("502f1b4a-b158-4a16-b043-7ccb1a63a17a"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 14.0 },
-                    { new Guid("2fdbb9c7-c5f1-47a2-be7b-70b243a4ee5b"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Craft Brew", null, 18.0 }
+                    { new Guid("d718c877-f7fe-42ce-9107-3c57c4d0b9d9"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Double Espresso", null, 2.7000000476837158 },
+                    { new Guid("a470c0b7-9ff1-4f93-9480-0ce633b2fa59"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Espresso", null, 1.3500000238418579 },
+                    { new Guid("9e34de9c-8013-4709-9d76-746d3d0bcf0f"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Gran Lungo", null, 5.0 },
+                    { new Guid("620c0799-ad6f-4dfc-869d-b94a401bdd6a"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 7.7699999809265137 },
+                    { new Guid("b4e0a7cd-7cb5-4d8f-9d2f-dd913d71bd0a"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 14.0 },
+                    { new Guid("e86ba1a6-5e0e-4dae-b8eb-03fc881d034f"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Craft Brew", null, 18.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -153,19 +154,19 @@ namespace NespressoReviewsApi.Migrations
                 columns: new[] { "Id", "CreatedDate", "ModifiedDate", "Name", "Notes", "Order" },
                 values: new object[,]
                 {
-                    { new Guid("c237255b-dc93-4b38-afc7-4f1cf8601dc1"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Original", null, 1 },
-                    { new Guid("c3141be8-4d31-4639-b105-18941c2a03b3"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vertuo", null, 2 }
+                    { new Guid("2039f381-099d-4e27-88e7-e28cbff6ad37"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Original", null, 1 },
+                    { new Guid("36ea90bd-fe64-498e-afc3-3184cf2e9c28"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vertuo", null, 2 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "CreatedDate", "EmailAddress", "FirstName", "LastName", "ModifiedDate", "Notes", "PasswordHash", "PasswordSalt", "UserName" },
-                values: new object[] { new Guid("f4eb6c08-3597-4bb9-8ee7-d382ecf4e858"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "patrick.sudol@icloud.com", "Patrick", "Sudol", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "slaskwroclaw18" });
+                columns: new[] { "Id", "Bio", "CreatedDate", "EmailAddress", "FirstName", "LastName", "ModifiedDate", "Notes", "PasswordHash", "PasswordSalt", "UserName" },
+                values: new object[] { new Guid("10a90cb2-8cc3-4967-8066-114d1d2d84f7"), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "patrick.sudol@icloud.com", "Patrick", "Sudol", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "slaskwroclaw18" });
 
             migrationBuilder.InsertData(
                 table: "Pods",
                 columns: new[] { "Id", "CreatedDate", "CupSizeId", "Description", "ModifiedDate", "Name", "Notes", "PodTypeId", "Price" },
-                values: new object[] { new Guid("1623ade9-480b-47dc-891d-dfc1f45a459d"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("1e97f9ce-0a83-4ae5-b32d-681f91c13690"), "Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Giornio", null, new Guid("c237255b-dc93-4b38-afc7-4f1cf8601dc1"), 10f });
+                values: new object[] { new Guid("0249191f-0a16-4598-bee1-5de7bc0f9e3e"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("d718c877-f7fe-42ce-9107-3c57c4d0b9d9"), "Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Giornio", null, new Guid("2039f381-099d-4e27-88e7-e28cbff6ad37"), 10f });
 
             migrationBuilder.CreateIndex(
                 name: "IX_PodReviews_PodId",
