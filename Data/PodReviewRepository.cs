@@ -48,5 +48,11 @@ namespace NespressoReviewsApi.Data
         {
             _context.Remove(entity);
         }
+
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
     }
+
 }

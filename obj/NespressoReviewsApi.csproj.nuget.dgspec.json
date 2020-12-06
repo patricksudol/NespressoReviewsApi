@@ -14,7 +14,7 @@
         "outputPath": "/Users/patricksudol/Code/NespressoReviewsApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/patricksudol/.config/NuGet/NuGet.Config"
+          "/Users/patricksudol/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -44,9 +44,17 @@
               "target": "Package",
               "version": "[3.1.10, )"
             },
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[3.1.10, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using NespressoReviewsApi.Data;
 using NespressoReviewsApi.Dtos;
 using NespressoReviewsApi.Models;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace NespressoReviewsApi.Controllers
 {
@@ -53,6 +54,23 @@ namespace NespressoReviewsApi.Controllers
             _repo.Create(podReviewsToCreate);
 
             return StatusCode(201);
+        }
+
+        [HttpPatch("{id:Guid}")]
+        public IActionResult PatchPodReview(Guid id, [FromBody] JsonPatchDocument<PodReview> patchEntity)
+        {
+            var entity = _repo.Get(id);
+            Console.WriteLine(entity == null);
+    
+            if (entity == null)
+            {
+                return NotFound();
+            }
+    
+            patchEntity.ApplyTo(entity, ModelState);
+            _repo.Save();
+            
+            return Ok(entity);
         }
     }
 }
