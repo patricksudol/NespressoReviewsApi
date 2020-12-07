@@ -70,13 +70,25 @@ namespace NespressoReviewsApi.Controllers
                 SigningCredentials = creds
             };
 
+            var refreshTokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddHours(1),
+                SigningCredentials = creds
+            };
+
             var tokenHandler = new JwtSecurityTokenHandler();
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
+            var refreshToken = tokenHandler.CreateToken(refreshTokenDescriptor);
             
+            var createdRefreshToken = tokenHandler.WriteToken(refreshToken);
+            userFromRepo.RefreshToken = createdRefreshToken;
+            _repo.Save();
 
             return Ok(new {
-                token = tokenHandler.WriteToken(token)
+                token = tokenHandler.WriteToken(token),
+                refreshToken = createdRefreshToken
             });
         }
     }

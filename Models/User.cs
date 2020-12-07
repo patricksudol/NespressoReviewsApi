@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -14,8 +15,12 @@ namespace NespressoReviewsApi.Models
         [Required]
         public string UserName { get; set; }
         public string Bio { get; set; }
+        
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+
+        public string RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
 
         public ICollection<PodReview> PodReview { get; set; }
 
