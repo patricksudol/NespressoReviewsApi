@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using NespressoReviewsApi.Data;
 using NespressoReviewsApi.Dtos;
 using NespressoReviewsApi.Models;
+using NespressoReviewsApi.Services;
 
 namespace NespressoReviewsApi.Controllers
 {
@@ -59,36 +60,16 @@ namespace NespressoReviewsApi.Controllers
                 new Claim(ClaimTypes.Name, userFromRepo.UserName)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(1),
-                SigningCredentials = creds
-            };
-
-            var refreshTokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddHours(1),
-                SigningCredentials = creds
-            };
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var refreshToken = tokenHandler.CreateToken(refreshTokenDescriptor);
+            var tokenServices = new TokenService(_config);
+            var token = tokenServices.GenerateAccessToken(claims);
             
-            var createdRefreshToken = tokenHandler.WriteToken(refreshToken);
-            userFromRepo.RefreshToken = createdRefreshToken;
+            var refreshToken = tokenServices.GenerateRefreshToken();
+            userFromRepo.RefreshToken = refreshToken;
             _repo.Save();
 
             return Ok(new {
-                token = tokenHandler.WriteToken(token),
-                refreshToken = createdRefreshToken
+                accesstoken = token,
+                refreshtoken = refreshToken
             });
         }
     }
