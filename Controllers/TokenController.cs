@@ -22,14 +22,14 @@ namespace NespressoReviewsApi.Controllers
         }
         [HttpPost]
         [Route("refresh")]
-        public IActionResult Refresh(Token tokenApiModel)
+        public IActionResult Refresh(Token tokenModel)
         {
-            if (tokenApiModel is null)
+            if (tokenModel is null)
             {
                 return BadRequest("Invalid client request");
             }
-            string accessToken = tokenApiModel.AccessToken;
-            string refreshToken = tokenApiModel.RefreshToken;
+            string accessToken = tokenModel.AccessToken;
+            string refreshToken = tokenModel.RefreshToken;
             var principal = tokenService.GetPrincipalFromExpiredToken(accessToken);
             var username = principal.Identity.Name; //this is mapped to the Name claim by default
             var user = userContext.Users.SingleOrDefault(u => u.UserName == username);
