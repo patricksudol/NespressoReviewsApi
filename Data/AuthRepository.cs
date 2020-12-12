@@ -47,6 +47,11 @@ namespace NespressoReviewsApi.Data
             return false;
         }
 
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -9,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using NespressoReviewsApi.Data;
 using NespressoReviewsApi.Dtos;
 using NespressoReviewsApi.Models;
+using NespressoReviewsApi.Services;
 
 namespace NespressoReviewsApi.Controllers
 {
@@ -18,10 +20,12 @@ namespace NespressoReviewsApi.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        private readonly ITokenService _tokenService;
+        public AuthController(IAuthRepository repo, IConfiguration config, ITokenService tokenService)
         {
             _config = config;
             _repo = repo;
+            _tokenService = tokenService;
         }
 
         [HttpPost("register")]
@@ -53,30 +57,22 @@ namespace NespressoReviewsApi.Controllers
             if (userFromRepo == null)
                 return Unauthorized();
 
-            var claims = new[]
+            var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
                 new Claim(ClaimTypes.Name, userFromRepo.UserName)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(1),
-                SigningCredentials = creds
-            };
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var accessToken = _tokenService.GenerateAccessToken(claims);
+            var refreshToken = _tokenService.GenerateRefreshToken();
             
+            userFromRepo.RefreshToken = refreshToken;
+            userFromRepo.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+            _repo.Save();
 
             return Ok(new {
-                token = tokenHandler.WriteToken(token)
+                accesstoken = accessToken,
+                refreshtoken = refreshToken
             });
         }
     }
