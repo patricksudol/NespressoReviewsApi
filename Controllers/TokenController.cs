@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NespressoReviewsApi.Data;
+using NespressoReviewsApi.Models;
 using NespressoReviewsApi.Services;
 
 namespace NespressoReviewsApi.Controllers
@@ -19,14 +21,14 @@ namespace NespressoReviewsApi.Controllers
 
         [HttpPost]
         [Route("refresh")]
-        public IActionResult Refresh(TokenApiModel tokenApiModel)
+        public IActionResult Refresh(Token token)
         {
-            if (tokenApiModel is null)
+            if (token is null)
             {
                 return BadRequest("Invalid client request");
             }
-            string accessToken = tokenApiModel.AccessToken;
-            string refreshToken = tokenApiModel.RefreshToken;
+            string accessToken = token.AccessToken;
+            string refreshToken = token.RefreshToken;
             var principal = tokenService.GetPrincipalFromExpiredToken(accessToken);
             var username = principal.Identity.Name; //this is mapped to the Name claim by default
             var user = userContext.Users.SingleOrDefault(u => u.UserName == username);
@@ -34,7 +36,7 @@ namespace NespressoReviewsApi.Controllers
             {
                 return BadRequest("Invalid client request");
             }
-            var newAccessToken = tokenService.GenerateAccessToken(principal.Claims);
+            var newAccessToken = tokenService.GenerateAccessToken(principal.Claims.ToArray<Claim>);
             var newRefreshToken = tokenService.GenerateRefreshToken();
             user.RefreshToken = newRefreshToken;
             userContext.SaveChanges();
