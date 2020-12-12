@@ -9,6 +9,8 @@ using NespressoReviewsApi.Services;
 
 namespace NespressoReviewsApi.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class TokenController : ControllerBase
     {
         readonly DataContext userContext;
@@ -18,17 +20,16 @@ namespace NespressoReviewsApi.Controllers
             this.userContext = userContext ?? throw new ArgumentNullException(nameof(userContext));
             this.tokenService = tokenService ?? throw new ArgumentNullException(nameof(tokenService));
         }
-
         [HttpPost]
         [Route("refresh")]
-        public IActionResult Refresh(Token token)
+        public IActionResult Refresh(Token tokenApiModel)
         {
-            if (token is null)
+            if (tokenApiModel is null)
             {
                 return BadRequest("Invalid client request");
             }
-            string accessToken = token.AccessToken;
-            string refreshToken = token.RefreshToken;
+            string accessToken = tokenApiModel.AccessToken;
+            string refreshToken = tokenApiModel.RefreshToken;
             var principal = tokenService.GetPrincipalFromExpiredToken(accessToken);
             var username = principal.Identity.Name; //this is mapped to the Name claim by default
             var user = userContext.Users.SingleOrDefault(u => u.UserName == username);
@@ -36,7 +37,7 @@ namespace NespressoReviewsApi.Controllers
             {
                 return BadRequest("Invalid client request");
             }
-            var newAccessToken = tokenService.GenerateAccessToken(principal.Claims.ToArray<Claim>);
+            var newAccessToken = tokenService.GenerateAccessToken(principal.Claims);
             var newRefreshToken = tokenService.GenerateRefreshToken();
             user.RefreshToken = newRefreshToken;
             userContext.SaveChanges();
@@ -46,7 +47,6 @@ namespace NespressoReviewsApi.Controllers
                 refreshToken = newRefreshToken
             });
         }
-
         [HttpPost, Authorize]
         [Route("revoke")]
         public IActionResult Revoke()

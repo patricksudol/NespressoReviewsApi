@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using NespressoReviewsApi.Data;
+using NespressoReviewsApi.Services;
 
 namespace NespressoReviewsApi
 {
@@ -45,6 +46,7 @@ namespace NespressoReviewsApi
             services.AddScoped<PodRepository>();
             services.AddScoped<PodReviewRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddTransient<ITokenService, TokenService>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -19,10 +20,12 @@ namespace NespressoReviewsApi.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        private readonly ITokenService _tokenService;
+        public AuthController(IAuthRepository repo, IConfiguration config, ITokenService tokenService)
         {
             _config = config;
             _repo = repo;
+            _tokenService = tokenService;
         }
 
         [HttpPost("register")]
@@ -54,21 +57,21 @@ namespace NespressoReviewsApi.Controllers
             if (userFromRepo == null)
                 return Unauthorized();
 
-            var claims = new[]
+            var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
                 new Claim(ClaimTypes.Name, userFromRepo.UserName)
             };
 
-            var tokenServices = new TokenService(_config);
-            var token = tokenServices.GenerateAccessToken(claims);
+            var accessToken = _tokenService.GenerateAccessToken(claims);
+            var refreshToken = _tokenService.GenerateRefreshToken();
             
-            var refreshToken = tokenServices.GenerateRefreshToken();
             userFromRepo.RefreshToken = refreshToken;
+            userFromRepo.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
             _repo.Save();
 
             return Ok(new {
-                accesstoken = token,
+                accesstoken = accessToken,
                 refreshtoken = refreshToken
             });
         }

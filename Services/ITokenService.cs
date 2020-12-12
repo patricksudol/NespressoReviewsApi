@@ -5,8 +5,8 @@ namespace NespressoReviewsApi.Services
 {
     public interface ITokenService
     {
-         string GenerateAccessToken(Claim[] claims);
-         string GenerateRefreshToken();
-         ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
+         string GenerateAccessToken(IEnumerable<Claim> claims);
+        string GenerateRefreshToken();
+        ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
     }
 }
