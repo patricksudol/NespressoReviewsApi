@@ -8,6 +8,8 @@ using NespressoReviewsApi.Data;
 using NespressoReviewsApi.Dtos;
 using NespressoReviewsApi.Models;
 using Microsoft.AspNetCore.JsonPatch;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace NespressoReviewsApi.Controllers
 {
@@ -17,24 +19,37 @@ namespace NespressoReviewsApi.Controllers
     {
         private readonly PodReviewRepository _repo;
         private readonly IMapper _mapper;
-        public PodReviewsController(PodReviewRepository repo, IMapper mapper)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly string _userName;
+        private readonly string _userId;
+
+        public PodReviewsController(PodReviewRepository repo, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _mapper = mapper;
             _repo = repo;
+            _httpContextAccessor = httpContextAccessor;
+
+            _userName = httpContextAccessor.HttpContext.User.Identity.Name;
+            _userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetPodReviews(Guid userId, Guid podId)
         {
             var podReviews = _repo.GetAll();
-            if (!(userId == Guid.Empty)) podReviews = _repo.GetByUser(userId);
-            if (!(podId == Guid.Empty)) podReviews = _repo.GetByPod(podId);
+            if (!(userId == Guid.Empty))
+                podReviews = _repo.GetByUser(userId);
+            if (!(podId == Guid.Empty))
+                podReviews = _repo.GetByPod(podId);
             return Ok(_mapper.Map<IEnumerable<PodReviewForListDto>>(podReviews));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPodReview(Guid id)
         {
+            Console.WriteLine($"Hey: {_userName}");
+            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Console.WriteLine($"Id: {userId}");
             return Ok(_repo.Get(id));
         }
 
@@ -54,6 +69,7 @@ namespace NespressoReviewsApi.Controllers
             return StatusCode(201);
         }
 
+        [Authorize]
         [HttpPatch("{id:Guid}")]
         public IActionResult PatchPodReview(Guid id, [FromBody] JsonPatchDocument<PodReview> patchEntity)
         {

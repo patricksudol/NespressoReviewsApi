@@ -15,11 +15,13 @@ namespace NespressoReviewsApi.Controllers
     {
         readonly DataContext userContext;
         readonly ITokenService tokenService;
+        
         public TokenController(DataContext userContext, ITokenService tokenService)
         {
             this.userContext = userContext ?? throw new ArgumentNullException(nameof(userContext));
             this.tokenService = tokenService ?? throw new ArgumentNullException(nameof(tokenService));
         }
+        
         [HttpPost]
         [Route("refresh")]
         public IActionResult Refresh(Token tokenModel)
@@ -31,7 +33,7 @@ namespace NespressoReviewsApi.Controllers
             string accessToken = tokenModel.AccessToken;
             string refreshToken = tokenModel.RefreshToken;
             var principal = tokenService.GetPrincipalFromExpiredToken(accessToken);
-            var username = principal.Identity.Name; //this is mapped to the Name claim by default
+            var username = principal.Identity.Name;
             var user = userContext.Users.SingleOrDefault(u => u.UserName == username);
             if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
             {
@@ -47,13 +49,16 @@ namespace NespressoReviewsApi.Controllers
                 refreshToken = newRefreshToken
             });
         }
+        
+        
         [HttpPost, Authorize]
         [Route("revoke")]
         public IActionResult Revoke()
         {
             var username = User.Identity.Name;
             var user = userContext.Users.SingleOrDefault(u => u.UserName == username);
-            if (user == null) return BadRequest();
+            if (user == null)
+                return BadRequest();
             user.RefreshToken = null;
             userContext.SaveChanges();
             return NoContent();

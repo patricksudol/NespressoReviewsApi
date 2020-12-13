@@ -38,6 +38,7 @@ namespace NespressoReviewsApi
                     errorNumbersToAdd: null);
                 });
             });
+            services.AddHttpContextAccessor();
             services.AddControllers().AddNewtonsoftJson();
             services.AddAutoMapper(typeof(PodTypeRepository).Assembly);
             services.AddAutoMapper(typeof(PodRepository).Assembly);
