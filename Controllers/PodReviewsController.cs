@@ -21,8 +21,7 @@ namespace NespressoReviewsApi.Controllers
         private readonly IMapper _mapper;
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string _userName;
-        private readonly string _userId;
+        private readonly Guid _userId;
 
         public PodReviewsController(DataContext context, PodReviewRepository repo, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
@@ -31,8 +30,7 @@ namespace NespressoReviewsApi.Controllers
             _repo = repo;
             _httpContextAccessor = httpContextAccessor;
 
-            _userName = httpContextAccessor.HttpContext.User.Identity.Name;
-            _userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            _userId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
         }
 
         [HttpGet]
@@ -77,8 +75,7 @@ namespace NespressoReviewsApi.Controllers
             if (entity == null)
                 return NotFound();
 
-            var userIdGuid = new Guid(_userId);
-            if (entity.UserId != userIdGuid)
+            if (entity.UserId != _userId)
                 return Forbid();
     
             patchEntity.ApplyTo(entity, ModelState);
