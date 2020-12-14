@@ -19,12 +19,14 @@ namespace NespressoReviewsApi.Controllers
     {
         private readonly PodReviewRepository _repo;
         private readonly IMapper _mapper;
+        private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly string _userName;
         private readonly string _userId;
 
-        public PodReviewsController(PodReviewRepository repo, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public PodReviewsController(DataContext context, PodReviewRepository repo, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
+            _context = context;
             _mapper = mapper;
             _repo = repo;
             _httpContextAccessor = httpContextAccessor;
@@ -47,9 +49,6 @@ namespace NespressoReviewsApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPodReview(Guid id)
         {
-            Console.WriteLine($"Hey: {_userName}");
-            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Console.WriteLine($"Id: {userId}");
             return Ok(_repo.Get(id));
         }
 
@@ -74,12 +73,13 @@ namespace NespressoReviewsApi.Controllers
         public IActionResult PatchPodReview(Guid id, [FromBody] JsonPatchDocument<PodReview> patchEntity)
         {
             var entity = _repo.Get(id);
-            Console.WriteLine(entity == null);
-    
+
             if (entity == null)
-            {
                 return NotFound();
-            }
+
+            var userIdGuid = new Guid(_userId);
+            if (entity.UserId != userIdGuid)
+                return Forbid();
     
             patchEntity.ApplyTo(entity, ModelState);
             _repo.Save();
