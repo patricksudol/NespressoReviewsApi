@@ -29,7 +29,6 @@ namespace NespressoReviewsApi.Controllers
             _mapper = mapper;
             _repo = repo;
             _httpContextAccessor = httpContextAccessor;
-
             _userId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
         }
 

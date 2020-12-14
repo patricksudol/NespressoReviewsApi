@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using NespressoReviewsApi.Data;
 using NespressoReviewsApi.Dtos;
 using NespressoReviewsApi.Models;
@@ -21,11 +20,13 @@ namespace NespressoReviewsApi.Controllers
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
         private readonly ITokenService _tokenService;
-        public AuthController(IAuthRepository repo, IConfiguration config, ITokenService tokenService)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public AuthController(IAuthRepository repo, IConfiguration config, ITokenService tokenService, IHttpContextAccessor httpContextAccessor)
         {
             _config = config;
             _repo = repo;
             _tokenService = tokenService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpPost("register")]
@@ -74,6 +75,15 @@ namespace NespressoReviewsApi.Controllers
                 accesstoken = accessToken,
                 refreshtoken = refreshToken
             });
+        }
+
+        [Authorize]
+        [HttpPost("resetpassword")]
+        public async Task<IActionResult> ResetPassword(UserResetPassword userResetPassword)
+        {  
+            var userId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var responseCode = await _repo.ChangePassword(userId, userResetPassword.OldPassword, userResetPassword.NewPassword);
+            return StatusCode(responseCode);
         }
     }
 }

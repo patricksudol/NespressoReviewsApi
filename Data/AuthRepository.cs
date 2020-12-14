@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NespressoReviewsApi.Models;
@@ -37,6 +38,29 @@ namespace NespressoReviewsApi.Data
             await _context.SaveChangesAsync();
 
             return user;
+        }
+
+        // TODO: Hack code to get it working. Need to think about what to return
+        public async Task<int> ChangePassword(Guid userId, string oldPassword, string NewPassword)
+        {
+            var updatedUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            Console.WriteLine(updatedUser.UserName);
+            
+            if (updatedUser == null)
+                return 404;
+            Console.WriteLine(!VerifyPasswordHash(oldPassword, updatedUser.PasswordHash, updatedUser.PasswordSalt));
+            if (!VerifyPasswordHash(oldPassword, updatedUser.PasswordHash, updatedUser.PasswordSalt))
+                return 404;
+            byte[] passwordHash, passwordSalt;
+            CreatePasswordHash(NewPassword, out passwordHash, out passwordSalt);
+
+            updatedUser.PasswordHash = passwordHash;
+            updatedUser.PasswordSalt = passwordSalt;
+
+            await _context.SaveChangesAsync();
+
+            return 200;
+
         }
 
         public async Task<bool> UserExists(string username)
