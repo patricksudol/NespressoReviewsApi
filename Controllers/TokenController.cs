@@ -35,12 +35,13 @@ namespace NespressoReviewsApi.Controllers
             var principal = tokenService.GetPrincipalFromExpiredToken(accessToken);
             var username = principal.Identity.Name;
             var user = userContext.Users.SingleOrDefault(u => u.UserName == username);
+            
             if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
-            {
                 return BadRequest("Invalid client request");
-            }
+            
             var newAccessToken = tokenService.GenerateAccessToken(principal.Claims);
             var newRefreshToken = tokenService.GenerateRefreshToken();
+            
             user.RefreshToken = newRefreshToken;
             userContext.SaveChanges();
             return new ObjectResult(new
