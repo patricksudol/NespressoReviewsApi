@@ -20,17 +20,7 @@ namespace NespressoReviewsApi.Data
             var podTypeId = Guid.NewGuid();
             var cupSizeId = Guid.NewGuid();
 
-            modelBuilder.Entity<PodReview>();
-
-            modelBuilder.Entity<User>().HasData(
-                new User { 
-                    Id = Guid.NewGuid(), 
-                    FirstName = "Patrick", 
-                    LastName = "Sudol", 
-                    UserName="slaskwroclaw18", 
-                    EmailAddress = "patrick.sudol@icloud.com"
-                }
-            );
+            modelBuilder.Entity<PodReview>().HasIndex(p => new {p.UserId , p.PodId}).IsUnique();
 
             modelBuilder.Entity<PodType>().HasData(
                 new PodType { Id = podTypeId, Name = "Original", Order = 1 },
@@ -58,4 +48,4 @@ namespace NespressoReviewsApi.Data
             );
         }
     }
-} 
+}
