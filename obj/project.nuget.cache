@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "csCeifY9nfuHTqGBKwuUOdZHZeevo/Ngnlh5LWhK6nDSmxnlS6Qefxy2LdB/rIiguNDRyvcvrx1PAyZLdDchnw==",
+  "dgSpecHash": "7l90gCmolYl5g9X1gJtiB5l0gaHudlMLd6OS7KESC/uDUEWwErWjkd5B4sVx6Ff1B/k5coo1yRehVzClk3ciDA==",
   "success": true,
   "projectFilePath": "/Users/patricksudol/Code/NespressoReviewsApi/NespressoReviewsApi.csproj",
   "expectedPackageFiles": [
@@ -27,8 +27,8 @@
     "/Users/patricksudol/.nuget/packages/microsoft.extensions.configuration/3.1.10/microsoft.extensions.configuration.3.1.10.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/microsoft.extensions.configuration.abstractions/3.1.10/microsoft.extensions.configuration.abstractions.3.1.10.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/microsoft.extensions.configuration.binder/3.1.10/microsoft.extensions.configuration.binder.3.1.10.nupkg.sha512",
-    "/Users/patricksudol/.nuget/packages/microsoft.extensions.dependencyinjection/3.1.10/microsoft.extensions.dependencyinjection.3.1.10.nupkg.sha512",
-    "/Users/patricksudol/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/3.1.10/microsoft.extensions.dependencyinjection.abstractions.3.1.10.nupkg.sha512",
+    "/Users/patricksudol/.nuget/packages/microsoft.extensions.dependencyinjection/5.0.1/microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",
+    "/Users/patricksudol/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/5.0.0/microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/microsoft.extensions.logging/3.1.10/microsoft.extensions.logging.3.1.10.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.10/microsoft.extensions.logging.abstractions.3.1.10.nupkg.sha512",
     "/Users/patricksudol/.nuget/packages/microsoft.extensions.options/3.1.10/microsoft.extensions.options.3.1.10.nupkg.sha512",

@@ -44,11 +44,9 @@ namespace NespressoReviewsApi.Data
         public async Task<int> ChangePassword(Guid userId, string oldPassword, string NewPassword)
         {
             var updatedUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-            Console.WriteLine(updatedUser.UserName);
             
             if (updatedUser == null)
                 return 404;
-            Console.WriteLine(!VerifyPasswordHash(oldPassword, updatedUser.PasswordHash, updatedUser.PasswordSalt));
             if (!VerifyPasswordHash(oldPassword, updatedUser.PasswordHash, updatedUser.PasswordSalt))
                 return 404;
             byte[] passwordHash, passwordSalt;

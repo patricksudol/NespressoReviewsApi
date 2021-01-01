@@ -35,7 +35,6 @@ namespace NespressoReviewsApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPod(Guid id)
         {
-            Console.WriteLine($"This is an id: {id}");
             return Ok(_repo.Get(id));
         }
     }

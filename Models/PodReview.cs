@@ -15,7 +15,7 @@ namespace NespressoReviewsApi.Models
         
         [Required]
         [Range(1, 5, ErrorMessage = "Score must be between 1 and 5")]
-        public int Score { get; set; }
+        public int? Score { get; set; }
         public string Description { get; set; }
     }
 } 
