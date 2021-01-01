@@ -55,20 +55,6 @@ namespace NespressoReviewsApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePodReview(PodReviewCreationDto podReviewCreationDto)
         {
-            System.Console.WriteLine($"Status: {ModelState.IsValid}");
-            if (!ModelState.IsValid)
-            {
-                System.Console.WriteLine("NO WAY");
-                List<string> errors =
-                    (from modelStateValue in this.ModelState.Values
-                        from modelError in modelStateValue.Errors
-                        select modelError.ErrorMessage).ToList();
-                foreach (var error in errors)
-                {
-                    System.Console.WriteLine(error);
-                }
-                return StatusCode(401);
-            }
             var podReviewsToCreate = new PodReview
             {
                 UserId = _userId,
