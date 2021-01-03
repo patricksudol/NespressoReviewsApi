@@ -83,7 +83,7 @@ namespace NespressoReviewsApi.Controllers
             patchEntity.ApplyTo(entity, ModelState);
             TryValidateModel(entity);
             if (!ModelState.IsValid)
-                return StatusCode(303);
+                return StatusCode(403);
             
             _repo.Save();
             
