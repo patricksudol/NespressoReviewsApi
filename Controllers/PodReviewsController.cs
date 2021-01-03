@@ -78,8 +78,13 @@ namespace NespressoReviewsApi.Controllers
 
             if (entity.UserId != _userId)
                 return Forbid();
+            
     
             patchEntity.ApplyTo(entity, ModelState);
+            TryValidateModel(entity);
+            if (!ModelState.IsValid)
+                return StatusCode(303);
+            
             _repo.Save();
             
             return Ok(entity);
