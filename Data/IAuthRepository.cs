@@ -10,7 +10,7 @@ namespace NespressoReviewsApi.Data
         Task<User> Login(string username, string password);
         // Task<User> ChangePassword(Guid userId, string oldPassword, string NewPassword);
         Task<int> ChangePassword(Guid userId, string oldPassword, string NewPassword);
-        Task<bool> UserExists(string username);
+        Task<bool> UserExists(string username, string email);
         void Save();
     }
 }

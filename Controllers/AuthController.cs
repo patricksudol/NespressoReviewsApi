@@ -33,17 +33,21 @@ namespace NespressoReviewsApi.Controllers
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
             userForRegisterDto.UserName = userForRegisterDto.UserName.ToLower();
-            userForRegisterDto.EmailAddress = userForRegisterDto.EmailAddress.ToLower();
+            userForRegisterDto.Email = userForRegisterDto.Email.ToLower();
 
-            if (await _repo.UserExists(userForRegisterDto.UserName))
-                return BadRequest("Username already exists");
+            if (await _repo.UserExists(userForRegisterDto.UserName, userForRegisterDto.Email))
+                return BadRequest("User already exists");
             
             var userToCreate = new User{
                 UserName = userForRegisterDto.UserName,
-                EmailAddress = userForRegisterDto.EmailAddress,
+                Email = userForRegisterDto.Email,
                 FirstName = userForRegisterDto.FirstName,
                 LastName = userForRegisterDto.LastName
             };
+
+            TryValidateModel(userToCreate);
+            if (!ModelState.IsValid)
+                return StatusCode(303);
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 

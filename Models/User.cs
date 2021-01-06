@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NespressoReviewsApi.Models
 {
@@ -11,8 +12,10 @@ namespace NespressoReviewsApi.Models
         [Required]
         public string LastName { get; set; }
         [Required]
-        public string EmailAddress { get; set; }
+        [Index(IsUnique=true)]
+        public string Email { get; set; }
         [Required]
+        [Index(IsUnique=true)]
         public string UserName { get; set; }
         public string Bio { get; set; }
         

@@ -68,3 +68,12 @@
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/EntityFramework.SqlServer.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/EntityFramework.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/System.CodeDom.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/System.Data.SqlClient.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/Users/patricksudol/Code/NespressoReviewsApi/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll

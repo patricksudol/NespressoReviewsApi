@@ -61,9 +61,12 @@ namespace NespressoReviewsApi.Data
 
         }
 
-        public async Task<bool> UserExists(string username)
+        public async Task<bool> UserExists(string username, string email)
         {
             if (await _context.Users.AnyAsync(x => x.UserName == username))
+                return true;
+
+            if (await _context.Users.AnyAsync(x => x.Email == email))
                 return true;
 
             return false;
