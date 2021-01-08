@@ -23,10 +23,10 @@ namespace NespressoReviewsApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
@@ -46,49 +46,37 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9971350a-f5ab-4753-aeff-647a45a864c6"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("289d128f-4ac7-4307-9dbc-e0630c08b28e"),
                             Name = "Double Espresso",
                             Volume = 2.7000000476837158
                         },
                         new
                         {
-                            Id = new Guid("501b8bb6-5bff-4049-a0cb-c4582bc23c5f"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("ad57bc90-5885-407b-901c-9b101ce4b62f"),
                             Name = "Espresso",
                             Volume = 1.3500000238418579
                         },
                         new
                         {
-                            Id = new Guid("afbd11e4-4a60-497e-8f54-1f3438cd9964"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("b9c81626-48f2-4369-b868-d3987a0b898a"),
                             Name = "Gran Lungo",
                             Volume = 5.0
                         },
                         new
                         {
-                            Id = new Guid("ed6e8285-9c7d-4d3f-87f7-c1829d0f20ec"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("72117e97-546d-4230-9f98-f3a0216fa7b6"),
                             Name = "Coffee",
                             Volume = 7.7699999809265137
                         },
                         new
                         {
-                            Id = new Guid("33735f84-db11-42c0-b6ef-ef6f749512ce"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("00ac2d6b-b600-450a-9503-45221670913f"),
                             Name = "Coffee",
                             Volume = 14.0
                         },
                         new
                         {
-                            Id = new Guid("07339a5c-bb76-4125-ae60-ff53b2b69cc8"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("c7947b9b-6a43-48d3-9473-dfcb50999c17"),
                             Name = "Craft Brew",
                             Volume = 18.0
                         });
@@ -100,10 +88,10 @@ namespace NespressoReviewsApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Notes")
@@ -123,7 +111,7 @@ namespace NespressoReviewsApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("CupSizeId")
@@ -133,7 +121,7 @@ namespace NespressoReviewsApi.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
@@ -160,13 +148,11 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7e6e647f-a898-4e38-a495-d7c844082e8a"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CupSizeId = new Guid("9971350a-f5ab-4753-aeff-647a45a864c6"),
+                            Id = new Guid("5143d126-7737-4eb5-934f-61e21deef370"),
+                            CupSizeId = new Guid("289d128f-4ac7-4307-9dbc-e0630c08b28e"),
                             Description = "Test",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Giornio",
-                            PodTypeId = new Guid("9459c1ec-a41b-4d75-80a8-1488ca410e39"),
+                            PodTypeId = new Guid("e17b8a4e-ad08-41b0-8a1e-31cad1686d30"),
                             Price = 10f
                         });
                 });
@@ -177,13 +163,13 @@ namespace NespressoReviewsApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Notes")
@@ -215,10 +201,10 @@ namespace NespressoReviewsApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
@@ -237,17 +223,13 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9459c1ec-a41b-4d75-80a8-1488ca410e39"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("e17b8a4e-ad08-41b0-8a1e-31cad1686d30"),
                             Name = "Original",
                             Order = 1
                         },
                         new
                         {
-                            Id = new Guid("a174db86-0396-4412-ae2d-519d276b23f8"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("2f77f6aa-ffa0-43c4-a742-f2b743cc7323"),
                             Name = "Vertuo",
                             Order = 2
                         });
@@ -262,10 +244,10 @@ namespace NespressoReviewsApi.Migrations
                     b.Property<string>("AccessToken")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Notes")
@@ -288,7 +270,7 @@ namespace NespressoReviewsApi.Migrations
                     b.Property<string>("Bio")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
@@ -303,7 +285,7 @@ namespace NespressoReviewsApi.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Notes")

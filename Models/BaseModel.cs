@@ -8,7 +8,7 @@ namespace NespressoReviewsApi.Models
         [Key]
         public Guid Id { get; set; }
         public string Notes { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime ModifiedDate { get; set;}
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? ModifiedDate { get; set;}
     }
 }

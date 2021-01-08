@@ -13,8 +13,8 @@ namespace NespressoReviewsApi.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    ModifiedDate = table.Column<DateTime>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: false),
                     Volume = table.Column<double>(nullable: false)
                 },
@@ -29,8 +29,8 @@ namespace NespressoReviewsApi.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    ModifiedDate = table.Column<DateTime>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Url = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -44,8 +44,8 @@ namespace NespressoReviewsApi.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    ModifiedDate = table.Column<DateTime>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Order = table.Column<int>(nullable: false)
                 },
@@ -60,8 +60,8 @@ namespace NespressoReviewsApi.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    ModifiedDate = table.Column<DateTime>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     AccessToken = table.Column<string>(nullable: true),
                     RefreshToken = table.Column<string>(nullable: true)
                 },
@@ -76,8 +76,8 @@ namespace NespressoReviewsApi.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    ModifiedDate = table.Column<DateTime>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     FirstName = table.Column<string>(nullable: false),
                     LastName = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
@@ -99,8 +99,8 @@ namespace NespressoReviewsApi.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    ModifiedDate = table.Column<DateTime>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: false),
                     Price = table.Column<float>(nullable: false),
                     Description = table.Column<string>(nullable: false),
@@ -130,8 +130,8 @@ namespace NespressoReviewsApi.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
-                    ModifiedDate = table.Column<DateTime>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     UserId = table.Column<Guid>(nullable: false),
                     PodId = table.Column<Guid>(nullable: false),
                     Score = table.Column<int>(nullable: false),
@@ -159,12 +159,12 @@ namespace NespressoReviewsApi.Migrations
                 columns: new[] { "Id", "CreatedDate", "ModifiedDate", "Name", "Notes", "Volume" },
                 values: new object[,]
                 {
-                    { new Guid("9971350a-f5ab-4753-aeff-647a45a864c6"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Double Espresso", null, 2.7000000476837158 },
-                    { new Guid("501b8bb6-5bff-4049-a0cb-c4582bc23c5f"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Espresso", null, 1.3500000238418579 },
-                    { new Guid("afbd11e4-4a60-497e-8f54-1f3438cd9964"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Gran Lungo", null, 5.0 },
-                    { new Guid("ed6e8285-9c7d-4d3f-87f7-c1829d0f20ec"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 7.7699999809265137 },
-                    { new Guid("33735f84-db11-42c0-b6ef-ef6f749512ce"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Coffee", null, 14.0 },
-                    { new Guid("07339a5c-bb76-4125-ae60-ff53b2b69cc8"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Craft Brew", null, 18.0 }
+                    { new Guid("289d128f-4ac7-4307-9dbc-e0630c08b28e"), null, null, "Double Espresso", null, 2.7000000476837158 },
+                    { new Guid("ad57bc90-5885-407b-901c-9b101ce4b62f"), null, null, "Espresso", null, 1.3500000238418579 },
+                    { new Guid("b9c81626-48f2-4369-b868-d3987a0b898a"), null, null, "Gran Lungo", null, 5.0 },
+                    { new Guid("72117e97-546d-4230-9f98-f3a0216fa7b6"), null, null, "Coffee", null, 7.7699999809265137 },
+                    { new Guid("00ac2d6b-b600-450a-9503-45221670913f"), null, null, "Coffee", null, 14.0 },
+                    { new Guid("c7947b9b-6a43-48d3-9473-dfcb50999c17"), null, null, "Craft Brew", null, 18.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -172,14 +172,14 @@ namespace NespressoReviewsApi.Migrations
                 columns: new[] { "Id", "CreatedDate", "ModifiedDate", "Name", "Notes", "Order" },
                 values: new object[,]
                 {
-                    { new Guid("9459c1ec-a41b-4d75-80a8-1488ca410e39"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Original", null, 1 },
-                    { new Guid("a174db86-0396-4412-ae2d-519d276b23f8"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vertuo", null, 2 }
+                    { new Guid("e17b8a4e-ad08-41b0-8a1e-31cad1686d30"), null, null, "Original", null, 1 },
+                    { new Guid("2f77f6aa-ffa0-43c4-a742-f2b743cc7323"), null, null, "Vertuo", null, 2 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Pods",
                 columns: new[] { "Id", "CreatedDate", "CupSizeId", "Description", "ModifiedDate", "Name", "Notes", "PodTypeId", "Price" },
-                values: new object[] { new Guid("7e6e647f-a898-4e38-a495-d7c844082e8a"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("9971350a-f5ab-4753-aeff-647a45a864c6"), "Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Giornio", null, new Guid("9459c1ec-a41b-4d75-80a8-1488ca410e39"), 10f });
+                values: new object[] { new Guid("5143d126-7737-4eb5-934f-61e21deef370"), null, new Guid("289d128f-4ac7-4307-9dbc-e0630c08b28e"), "Test", null, "Giornio", null, new Guid("e17b8a4e-ad08-41b0-8a1e-31cad1686d30"), 10f });
 
             migrationBuilder.CreateIndex(
                 name: "IX_PodReviews_PodId",
