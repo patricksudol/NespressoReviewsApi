@@ -60,7 +60,8 @@ namespace NespressoReviewsApi.Controllers
                 UserId = _userId,
                 Score = podReviewCreationDto.Score,
                 Description = podReviewCreationDto.Description,
-                PodId = podReviewCreationDto.PodId
+                PodId = podReviewCreationDto.PodId,
+                CreatedDate = podReviewCreationDto.CreatedDate
             };
             _repo.Create(podReviewsToCreate);
 

@@ -42,7 +42,8 @@ namespace NespressoReviewsApi.Controllers
                 UserName = userForRegisterDto.UserName,
                 Email = userForRegisterDto.Email,
                 FirstName = userForRegisterDto.FirstName,
-                LastName = userForRegisterDto.LastName
+                LastName = userForRegisterDto.LastName,
+                CreatedDate = userForRegisterDto.CreatedDate,
             };
 
             TryValidateModel(userToCreate);

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NespressoReviewsApi.Dtos
 {
-    public class UserForRegisterDto
+    public class UserForRegisterDto : CreationDtoBase
     {
         [Required]
         public string FirstName { get; set; }
@@ -14,5 +14,6 @@ namespace NespressoReviewsApi.Dtos
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+        UserForRegisterDto() : base() {}
     }
 }
