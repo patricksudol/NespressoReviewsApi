@@ -86,6 +86,7 @@ namespace NespressoReviewsApi.Controllers
             if (!ModelState.IsValid)
                 return StatusCode(403);
             
+            entity.ModifiedDate = DateTime.Now;
             _repo.Save();
             
             return Ok(entity);
