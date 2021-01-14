@@ -9,7 +9,7 @@ using NespressoReviewsApi.Data;
 namespace NespressoReviewsApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210108032039_Initial")]
+    [Migration("20210114014907_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,37 +48,37 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("289d128f-4ac7-4307-9dbc-e0630c08b28e"),
+                            Id = new Guid("d8c957fb-ff27-4a83-bcdb-9bbd8947cbed"),
                             Name = "Double Espresso",
                             Volume = 2.7000000476837158
                         },
                         new
                         {
-                            Id = new Guid("ad57bc90-5885-407b-901c-9b101ce4b62f"),
+                            Id = new Guid("6c48cfe3-146a-4645-a1a0-d6ecf8bc5152"),
                             Name = "Espresso",
                             Volume = 1.3500000238418579
                         },
                         new
                         {
-                            Id = new Guid("b9c81626-48f2-4369-b868-d3987a0b898a"),
+                            Id = new Guid("300c712f-3ccc-45e5-9ee1-d0e73e398d6d"),
                             Name = "Gran Lungo",
                             Volume = 5.0
                         },
                         new
                         {
-                            Id = new Guid("72117e97-546d-4230-9f98-f3a0216fa7b6"),
+                            Id = new Guid("e8799de6-4697-490a-a8a6-a71633c07dc3"),
                             Name = "Coffee",
                             Volume = 7.7699999809265137
                         },
                         new
                         {
-                            Id = new Guid("00ac2d6b-b600-450a-9503-45221670913f"),
+                            Id = new Guid("88a3081d-950b-4fe3-80cd-267b128ccbcc"),
                             Name = "Coffee",
                             Volume = 14.0
                         },
                         new
                         {
-                            Id = new Guid("c7947b9b-6a43-48d3-9473-dfcb50999c17"),
+                            Id = new Guid("9c4f4e10-55ee-4641-ae01-abf67f066036"),
                             Name = "Craft Brew",
                             Volume = 18.0
                         });
@@ -150,11 +150,29 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5143d126-7737-4eb5-934f-61e21deef370"),
-                            CupSizeId = new Guid("289d128f-4ac7-4307-9dbc-e0630c08b28e"),
+                            Id = new Guid("6bed5c83-1208-4979-b7f4-a479ee1e24f2"),
+                            CupSizeId = new Guid("d8c957fb-ff27-4a83-bcdb-9bbd8947cbed"),
                             Description = "Test",
                             Name = "Giornio",
-                            PodTypeId = new Guid("e17b8a4e-ad08-41b0-8a1e-31cad1686d30"),
+                            PodTypeId = new Guid("26ed8ec0-f41b-4cf5-bb84-72455b914ff9"),
+                            Price = 10f
+                        },
+                        new
+                        {
+                            Id = new Guid("7e6faee9-c25b-4077-8660-da684e0c48cc"),
+                            CupSizeId = new Guid("d8c957fb-ff27-4a83-bcdb-9bbd8947cbed"),
+                            Description = "Test",
+                            Name = "Vanilla Custard Pie",
+                            PodTypeId = new Guid("26ed8ec0-f41b-4cf5-bb84-72455b914ff9"),
+                            Price = 10f
+                        },
+                        new
+                        {
+                            Id = new Guid("6f91bf42-14c2-41b8-8342-f77e3973a2c5"),
+                            CupSizeId = new Guid("d8c957fb-ff27-4a83-bcdb-9bbd8947cbed"),
+                            Description = "Test",
+                            Name = "Cossta Rica",
+                            PodTypeId = new Guid("26ed8ec0-f41b-4cf5-bb84-72455b914ff9"),
                             Price = 10f
                         });
                 });
@@ -225,13 +243,13 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e17b8a4e-ad08-41b0-8a1e-31cad1686d30"),
+                            Id = new Guid("26ed8ec0-f41b-4cf5-bb84-72455b914ff9"),
                             Name = "Original",
                             Order = 1
                         },
                         new
                         {
-                            Id = new Guid("2f77f6aa-ffa0-43c4-a742-f2b743cc7323"),
+                            Id = new Guid("69b310d8-9dab-4849-86a6-f47311aa241c"),
                             Name = "Vertuo",
                             Order = 2
                         });

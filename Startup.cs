@@ -39,6 +39,7 @@ namespace NespressoReviewsApi
                     errorNumbersToAdd: null);
                 });
             });
+            services.AddCors();
             services.AddHttpContextAccessor();
             services.AddControllers().AddNewtonsoftJson();
             services.AddAutoMapper(typeof(PodTypeRepository).Assembly);
@@ -69,6 +70,9 @@ namespace NespressoReviewsApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:4200").AllowAnyMethod()
+            );
 
             app.UseRouting();
 

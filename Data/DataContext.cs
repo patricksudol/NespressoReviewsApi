@@ -44,6 +44,22 @@ namespace NespressoReviewsApi.Data
                     Name = "Giornio",
                     Price = (float)10.00f,
                     Description = "Test",
+                },
+                new Pod { 
+                    Id = Guid.NewGuid(),
+                    CupSizeId = cupSizeId,
+                    PodTypeId = podTypeId,
+                    Name = "Vanilla Custard Pie",
+                    Price = (float)10.00f,
+                    Description = "Test",
+                },
+                new Pod { 
+                    Id = Guid.NewGuid(),
+                    CupSizeId = cupSizeId,
+                    PodTypeId = podTypeId,
+                    Name = "Cossta Rica",
+                    Price = (float)10.00f,
+                    Description = "Test",
                 }
             );
         }
