@@ -9,6 +9,7 @@ namespace NespressoReviewsApi.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<PodType, PodTypeCreationDto>();
+            CreateMap<PodType, PodTypeForListDto>();
             CreateMap<PodReview, PodReviewCreationDto>();
             CreateMap<PodReview, PodReviewForListDto>();
             CreateMap<Pod, PodForListDto>();

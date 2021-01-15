@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -23,14 +24,15 @@ namespace NespressoReviewsApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPodTypes()
         {
-            var podtypes = _repo.GetAll();
-            return Ok(podtypes);
+            var podTypes = _repo.GetAll();
+            return Ok(_mapper.Map<IEnumerable<PodTypeForListDto>>(podTypes));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPodType(Guid id)
         {
-            return Ok(_repo.Get(id));
+            var podType = _repo.Get(id);
+            return Ok(_mapper.Map<PodTypeForListDto>(podType));
         }
 
         [HttpPost]
