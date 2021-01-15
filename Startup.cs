@@ -45,9 +45,11 @@ namespace NespressoReviewsApi
             services.AddAutoMapper(typeof(PodTypeRepository).Assembly);
             services.AddAutoMapper(typeof(PodRepository).Assembly);
             services.AddAutoMapper(typeof(PodReviewRepository).Assembly);
+            services.AddAutoMapper(typeof(CupSizeRepository).Assembly);
             services.AddScoped<PodTypeRepository>();
             services.AddScoped<PodRepository>();
             services.AddScoped<PodReviewRepository>();
+            services.AddScoped<CupSizeRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddTransient<ITokenService, TokenService>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

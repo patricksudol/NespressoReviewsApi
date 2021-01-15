@@ -13,6 +13,7 @@ namespace NespressoReviewsApi.Helpers
             CreateMap<PodReview, PodReviewCreationDto>();
             CreateMap<PodReview, PodReviewForListDto>();
             CreateMap<Pod, PodForListDto>();
+            CreateMap<CupSize, CupSizeForListDto>();
         }
     }
 }
