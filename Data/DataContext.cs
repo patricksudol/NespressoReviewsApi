@@ -17,14 +17,15 @@ namespace NespressoReviewsApi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var podTypeId = Guid.NewGuid();
+            var podTypeIdOne = Guid.NewGuid();
+            var podTypeIdTwo = Guid.NewGuid();
             var cupSizeId = Guid.NewGuid();
 
             modelBuilder.Entity<PodReview>().HasIndex(p => new {p.UserId , p.PodId}).IsUnique();
 
             modelBuilder.Entity<PodType>().HasData(
-                new PodType { Id = podTypeId, Name = "Original", Order = 1 },
-                new PodType { Id = Guid.NewGuid(), Name = "Vertuo", Order = 2 }
+                new PodType { Id = podTypeIdOne, Name = "Original", Order = 1 },
+                new PodType { Id = podTypeIdTwo, Name = "Vertuo", Order = 2 }
             );
 
             modelBuilder.Entity<CupSize>().HasData(
@@ -40,7 +41,7 @@ namespace NespressoReviewsApi.Data
                 new Pod { 
                     Id = Guid.NewGuid(),
                     CupSizeId = cupSizeId,
-                    PodTypeId = podTypeId,
+                    PodTypeId = podTypeIdOne,
                     Name = "Giornio",
                     Price = (float)10.00f,
                     Description = "Test",
@@ -48,7 +49,7 @@ namespace NespressoReviewsApi.Data
                 new Pod { 
                     Id = Guid.NewGuid(),
                     CupSizeId = cupSizeId,
-                    PodTypeId = podTypeId,
+                    PodTypeId = podTypeIdOne,
                     Name = "Vanilla Custard Pie",
                     Price = (float)10.00f,
                     Description = "Test",
@@ -56,8 +57,16 @@ namespace NespressoReviewsApi.Data
                 new Pod { 
                     Id = Guid.NewGuid(),
                     CupSizeId = cupSizeId,
-                    PodTypeId = podTypeId,
+                    PodTypeId = podTypeIdTwo,
                     Name = "Cossta Rica",
+                    Price = (float)10.00f,
+                    Description = "Test",
+                },
+                new Pod { 
+                    Id = Guid.NewGuid(),
+                    CupSizeId = cupSizeId,
+                    PodTypeId = podTypeIdTwo,
+                    Name = "Ethiopia",
                     Price = (float)10.00f,
                     Description = "Test",
                 }

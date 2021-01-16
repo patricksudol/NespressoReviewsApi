@@ -159,12 +159,12 @@ namespace NespressoReviewsApi.Migrations
                 columns: new[] { "Id", "CreatedDate", "ModifiedDate", "Name", "Notes", "Volume" },
                 values: new object[,]
                 {
-                    { new Guid("d8c957fb-ff27-4a83-bcdb-9bbd8947cbed"), null, null, "Double Espresso", null, 2.7000000476837158 },
-                    { new Guid("6c48cfe3-146a-4645-a1a0-d6ecf8bc5152"), null, null, "Espresso", null, 1.3500000238418579 },
-                    { new Guid("300c712f-3ccc-45e5-9ee1-d0e73e398d6d"), null, null, "Gran Lungo", null, 5.0 },
-                    { new Guid("e8799de6-4697-490a-a8a6-a71633c07dc3"), null, null, "Coffee", null, 7.7699999809265137 },
-                    { new Guid("88a3081d-950b-4fe3-80cd-267b128ccbcc"), null, null, "Coffee", null, 14.0 },
-                    { new Guid("9c4f4e10-55ee-4641-ae01-abf67f066036"), null, null, "Craft Brew", null, 18.0 }
+                    { new Guid("8639f548-cc75-494b-8470-42fa3d10162d"), null, null, "Double Espresso", null, 2.7000000476837158 },
+                    { new Guid("7fdf6dfb-f087-4270-965c-484f08767836"), null, null, "Espresso", null, 1.3500000238418579 },
+                    { new Guid("020d12a7-e9ae-45b3-bd77-7c820ff969ac"), null, null, "Gran Lungo", null, 5.0 },
+                    { new Guid("a343a1f4-b92e-4352-8dab-6508b95f3081"), null, null, "Coffee", null, 7.7699999809265137 },
+                    { new Guid("32c4f87d-ed3b-4ddc-8f8c-e0069fc55e5a"), null, null, "Coffee", null, 14.0 },
+                    { new Guid("cf09a5e7-09e4-4b4c-81da-906dcd06d395"), null, null, "Craft Brew", null, 18.0 }
                 });
 
             migrationBuilder.InsertData(
@@ -172,24 +172,20 @@ namespace NespressoReviewsApi.Migrations
                 columns: new[] { "Id", "CreatedDate", "ModifiedDate", "Name", "Notes", "Order" },
                 values: new object[,]
                 {
-                    { new Guid("26ed8ec0-f41b-4cf5-bb84-72455b914ff9"), null, null, "Original", null, 1 },
-                    { new Guid("69b310d8-9dab-4849-86a6-f47311aa241c"), null, null, "Vertuo", null, 2 }
+                    { new Guid("cdcdd0c4-6486-48e9-b69d-4d7760d92962"), null, null, "Original", null, 1 },
+                    { new Guid("eb81beb4-5a11-4a2f-a3f8-b6f05f5ad27e"), null, null, "Vertuo", null, 2 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Pods",
                 columns: new[] { "Id", "CreatedDate", "CupSizeId", "Description", "ModifiedDate", "Name", "Notes", "PodTypeId", "Price" },
-                values: new object[] { new Guid("6bed5c83-1208-4979-b7f4-a479ee1e24f2"), null, new Guid("d8c957fb-ff27-4a83-bcdb-9bbd8947cbed"), "Test", null, "Giornio", null, new Guid("26ed8ec0-f41b-4cf5-bb84-72455b914ff9"), 10f });
-
-            migrationBuilder.InsertData(
-                table: "Pods",
-                columns: new[] { "Id", "CreatedDate", "CupSizeId", "Description", "ModifiedDate", "Name", "Notes", "PodTypeId", "Price" },
-                values: new object[] { new Guid("7e6faee9-c25b-4077-8660-da684e0c48cc"), null, new Guid("d8c957fb-ff27-4a83-bcdb-9bbd8947cbed"), "Test", null, "Vanilla Custard Pie", null, new Guid("26ed8ec0-f41b-4cf5-bb84-72455b914ff9"), 10f });
-
-            migrationBuilder.InsertData(
-                table: "Pods",
-                columns: new[] { "Id", "CreatedDate", "CupSizeId", "Description", "ModifiedDate", "Name", "Notes", "PodTypeId", "Price" },
-                values: new object[] { new Guid("6f91bf42-14c2-41b8-8342-f77e3973a2c5"), null, new Guid("d8c957fb-ff27-4a83-bcdb-9bbd8947cbed"), "Test", null, "Cossta Rica", null, new Guid("26ed8ec0-f41b-4cf5-bb84-72455b914ff9"), 10f });
+                values: new object[,]
+                {
+                    { new Guid("818fecc5-b2c7-4c9b-a5d6-10bb3ee64dff"), null, new Guid("8639f548-cc75-494b-8470-42fa3d10162d"), "Test", null, "Giornio", null, new Guid("cdcdd0c4-6486-48e9-b69d-4d7760d92962"), 10f },
+                    { new Guid("7a52449e-e41a-4014-b765-80de51383a2a"), null, new Guid("8639f548-cc75-494b-8470-42fa3d10162d"), "Test", null, "Vanilla Custard Pie", null, new Guid("cdcdd0c4-6486-48e9-b69d-4d7760d92962"), 10f },
+                    { new Guid("46e03fd6-a5a0-47ae-833d-b893dd575a95"), null, new Guid("8639f548-cc75-494b-8470-42fa3d10162d"), "Test", null, "Cossta Rica", null, new Guid("eb81beb4-5a11-4a2f-a3f8-b6f05f5ad27e"), 10f },
+                    { new Guid("0fb3c83f-e586-48d6-a20c-d467207d9789"), null, new Guid("8639f548-cc75-494b-8470-42fa3d10162d"), "Test", null, "Ethiopia", null, new Guid("eb81beb4-5a11-4a2f-a3f8-b6f05f5ad27e"), 10f }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_PodReviews_PodId",
