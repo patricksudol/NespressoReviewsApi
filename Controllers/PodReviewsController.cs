@@ -23,6 +23,7 @@ namespace NespressoReviewsApi.Controllers
         private readonly IMapper _mapper;
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        // TODO: Has to be null for non authorized requests
         private readonly Guid _userId;
 
         public PodReviewsController(DataContext context, PodReviewRepository repo, IMapper mapper, IHttpContextAccessor httpContextAccessor)
@@ -50,6 +51,18 @@ namespace NespressoReviewsApi.Controllers
         {
             var podReview = _repo.Get(id);
             return Ok(_mapper.Map<PodReviewForListDto>(podReview));
+        }
+
+        [HttpGet("{id}/average")]
+        public async Task<IActionResult> GePodReviewAverage(Guid podId)
+        {
+            var podReviews = _repo.GetByPod(podId);
+            var scoreSum = 0;
+            foreach (var podReview in podReviews)
+            {
+                scoreSum += podReview.Score;
+            }
+            return Ok(scoreSum/podReviews.Count());
         }
 
         [Authorize]
@@ -80,16 +93,16 @@ namespace NespressoReviewsApi.Controllers
 
             if (entity.UserId != _userId)
                 return Forbid();
-            
-    
+
+
             patchEntity.ApplyTo(entity, ModelState);
             TryValidateModel(entity);
             if (!ModelState.IsValid)
                 return StatusCode(403);
-            
+
             entity.ModifiedDate = DateTime.Now;
             _repo.Save();
-            
+
             return Ok(entity);
         }
     }

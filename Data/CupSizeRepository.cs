@@ -33,10 +33,5 @@ namespace NespressoReviewsApi.Data
         {
             return _context.Set<CupSize>().ToList();
         }
-
-        public void Update(CupSize entity)
-        {
-            _context.Remove(entity);
-        }
     }
 }

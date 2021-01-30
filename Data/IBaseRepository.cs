@@ -9,6 +9,5 @@ namespace NespressoReviewsApi.Data
         IEnumerable<T> GetAll();
         void Create(T entity);
         void Delete(T entity);
-        void Update(T entity);
     }
 }

@@ -46,37 +46,37 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8639f548-cc75-494b-8470-42fa3d10162d"),
+                            Id = new Guid("e3e4cac7-ec79-4adc-9063-c44b7e207f72"),
                             Name = "Double Espresso",
                             Volume = 2.7000000476837158
                         },
                         new
                         {
-                            Id = new Guid("7fdf6dfb-f087-4270-965c-484f08767836"),
+                            Id = new Guid("925017e3-0e05-4ea0-bf07-39d89dae2c4a"),
                             Name = "Espresso",
                             Volume = 1.3500000238418579
                         },
                         new
                         {
-                            Id = new Guid("020d12a7-e9ae-45b3-bd77-7c820ff969ac"),
+                            Id = new Guid("80078126-e891-4445-a2e0-7a59868bb500"),
                             Name = "Gran Lungo",
                             Volume = 5.0
                         },
                         new
                         {
-                            Id = new Guid("a343a1f4-b92e-4352-8dab-6508b95f3081"),
+                            Id = new Guid("9f7e5026-eb5f-4de8-abf2-2cc94f5284ea"),
                             Name = "Coffee",
                             Volume = 7.7699999809265137
                         },
                         new
                         {
-                            Id = new Guid("32c4f87d-ed3b-4ddc-8f8c-e0069fc55e5a"),
+                            Id = new Guid("81083f4b-f9aa-47c9-b30a-a239b2b42be4"),
                             Name = "Coffee",
                             Volume = 14.0
                         },
                         new
                         {
-                            Id = new Guid("cf09a5e7-09e4-4b4c-81da-906dcd06d395"),
+                            Id = new Guid("abf2506b-6f55-437c-8dae-01b3f6a69aa5"),
                             Name = "Craft Brew",
                             Volume = 18.0
                         });
@@ -148,38 +148,38 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("818fecc5-b2c7-4c9b-a5d6-10bb3ee64dff"),
-                            CupSizeId = new Guid("8639f548-cc75-494b-8470-42fa3d10162d"),
+                            Id = new Guid("5288433a-725f-443e-bd86-c46bb0cd9ac7"),
+                            CupSizeId = new Guid("e3e4cac7-ec79-4adc-9063-c44b7e207f72"),
                             Description = "Test",
                             Name = "Giornio",
-                            PodTypeId = new Guid("cdcdd0c4-6486-48e9-b69d-4d7760d92962"),
+                            PodTypeId = new Guid("e48e2b22-6635-4cfc-864b-23832bbecec3"),
                             Price = 10f
                         },
                         new
                         {
-                            Id = new Guid("7a52449e-e41a-4014-b765-80de51383a2a"),
-                            CupSizeId = new Guid("8639f548-cc75-494b-8470-42fa3d10162d"),
+                            Id = new Guid("6eda16b7-b118-4666-81c4-59cd7bc3c340"),
+                            CupSizeId = new Guid("e3e4cac7-ec79-4adc-9063-c44b7e207f72"),
                             Description = "Test",
                             Name = "Vanilla Custard Pie",
-                            PodTypeId = new Guid("cdcdd0c4-6486-48e9-b69d-4d7760d92962"),
+                            PodTypeId = new Guid("e48e2b22-6635-4cfc-864b-23832bbecec3"),
                             Price = 10f
                         },
                         new
                         {
-                            Id = new Guid("46e03fd6-a5a0-47ae-833d-b893dd575a95"),
-                            CupSizeId = new Guid("8639f548-cc75-494b-8470-42fa3d10162d"),
+                            Id = new Guid("f0be15d6-da35-4c32-87b7-bf5c2443e332"),
+                            CupSizeId = new Guid("e3e4cac7-ec79-4adc-9063-c44b7e207f72"),
                             Description = "Test",
                             Name = "Cossta Rica",
-                            PodTypeId = new Guid("eb81beb4-5a11-4a2f-a3f8-b6f05f5ad27e"),
+                            PodTypeId = new Guid("a217f851-e530-48c9-bb1e-9f56bac9d484"),
                             Price = 10f
                         },
                         new
                         {
-                            Id = new Guid("0fb3c83f-e586-48d6-a20c-d467207d9789"),
-                            CupSizeId = new Guid("8639f548-cc75-494b-8470-42fa3d10162d"),
+                            Id = new Guid("c052eb34-261d-43b7-a736-044f8fcb5606"),
+                            CupSizeId = new Guid("e3e4cac7-ec79-4adc-9063-c44b7e207f72"),
                             Description = "Test",
                             Name = "Ethiopia",
-                            PodTypeId = new Guid("eb81beb4-5a11-4a2f-a3f8-b6f05f5ad27e"),
+                            PodTypeId = new Guid("a217f851-e530-48c9-bb1e-9f56bac9d484"),
                             Price = 10f
                         });
                 });
@@ -205,8 +205,7 @@ namespace NespressoReviewsApi.Migrations
                     b.Property<Guid>("PodId")
                         .HasColumnType("char(36)");
 
-                    b.Property<int?>("Score")
-                        .IsRequired()
+                    b.Property<int>("Score")
                         .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
@@ -250,13 +249,13 @@ namespace NespressoReviewsApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cdcdd0c4-6486-48e9-b69d-4d7760d92962"),
+                            Id = new Guid("e48e2b22-6635-4cfc-864b-23832bbecec3"),
                             Name = "Original",
                             Order = 1
                         },
                         new
                         {
-                            Id = new Guid("eb81beb4-5a11-4a2f-a3f8-b6f05f5ad27e"),
+                            Id = new Guid("a217f851-e530-48c9-bb1e-9f56bac9d484"),
                             Name = "Vertuo",
                             Order = 2
                         });

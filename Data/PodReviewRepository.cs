@@ -44,11 +44,6 @@ namespace NespressoReviewsApi.Data
             return _context.Set<PodReview>().ToList();
         }
 
-        public void Update(PodReview entity)
-        {
-            _context.Remove(entity);
-        }
-
         public void Save()
         {
             _context.SaveChanges();
