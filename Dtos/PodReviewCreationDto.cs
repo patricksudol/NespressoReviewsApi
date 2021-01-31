@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using NespressoReviewsApi.Models;
 
 namespace NespressoReviewsApi.Dtos
 {

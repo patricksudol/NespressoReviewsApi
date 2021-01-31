@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.JsonPatch;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace NespressoReviewsApi.Controllers
 {
