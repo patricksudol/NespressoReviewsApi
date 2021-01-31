@@ -62,8 +62,8 @@ namespace NespressoReviewsApi.Controllers
             {
                 scoreSum += podReview.Score;
             }
-            // TODO: Round to one decimal place
-            return Ok(podReviews.Count() > 0 ? scoreSum/podReviews.Count() : 0);
+            var averageDouble = podReviews.Count() > 0 ? scoreSum/(double)podReviews.Count() : 0;
+            return Ok(averageDouble.ToString("0.0"));
         }
 
         [Authorize]
