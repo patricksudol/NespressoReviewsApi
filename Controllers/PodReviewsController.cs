@@ -24,7 +24,7 @@ namespace NespressoReviewsApi.Controllers
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
         // TODO: Has to be null for non authorized requests
-        private readonly Guid _userId;
+        // private readonly Guid _userId;
 
         public PodReviewsController(DataContext context, PodReviewRepository repo, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
@@ -32,7 +32,7 @@ namespace NespressoReviewsApi.Controllers
             _mapper = mapper;
             _repo = repo;
             _httpContextAccessor = httpContextAccessor;
-            _userId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            // _userId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
         }
 
         [HttpGet]
@@ -53,8 +53,8 @@ namespace NespressoReviewsApi.Controllers
             return Ok(_mapper.Map<PodReviewForListDto>(podReview));
         }
 
-        [HttpGet("{id}/average")]
-        public async Task<IActionResult> GePodReviewAverage(Guid podId)
+        [HttpGet("{podId}/average")]
+        public async Task<IActionResult> GetPodReviewAverage(Guid podId)
         {
             var podReviews = _repo.GetByPod(podId);
             var scoreSum = 0;
@@ -62,7 +62,8 @@ namespace NespressoReviewsApi.Controllers
             {
                 scoreSum += podReview.Score;
             }
-            return Ok(scoreSum/podReviews.Count());
+            // TODO: Round to one decimal place
+            return Ok(podReviews.Count() > 0 ? scoreSum/podReviews.Count() : 0);
         }
 
         [Authorize]
@@ -71,7 +72,7 @@ namespace NespressoReviewsApi.Controllers
         {
             var podReviewsToCreate = new PodReview
             {
-                UserId = _userId,
+                UserId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)),
                 Score = podReviewCreationDto.Score,
                 Description = podReviewCreationDto.Description,
                 PodId = podReviewCreationDto.PodId,
@@ -79,6 +80,7 @@ namespace NespressoReviewsApi.Controllers
             };
             _repo.Create(podReviewsToCreate);
 
+            // TODO: Use 'Created()' method
             return StatusCode(201);
         }
 
@@ -87,11 +89,12 @@ namespace NespressoReviewsApi.Controllers
         public IActionResult PatchPodReview(Guid id, [FromBody] JsonPatchDocument<PodReview> patchEntity)
         {
             var entity = _repo.Get(id);
+            var userId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (entity == null)
                 return NotFound();
 
-            if (entity.UserId != _userId)
+            if (entity.UserId != userId)
                 return Forbid();
 
 
