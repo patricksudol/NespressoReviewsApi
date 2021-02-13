@@ -73,6 +73,7 @@ namespace NespressoReviewsApi.Controllers
             {
                 UserId = new Guid(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier)),
                 Score = podReviewCreationDto.Score,
+                Header = podReviewCreationDto.Header,
                 Description = podReviewCreationDto.Description,
                 PodId = podReviewCreationDto.PodId,
                 CreatedDate = podReviewCreationDto.CreatedDate
