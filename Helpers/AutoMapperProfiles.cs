@@ -14,6 +14,7 @@ namespace NespressoReviewsApi.Helpers
             CreateMap<PodReview, PodReviewForListDto>();
             CreateMap<Pod, PodForListDto>();
             CreateMap<CupSize, CupSizeForListDto>();
+            CreateMap<User, UserForListDto>();
         }
     }
 }
